@@ -34,6 +34,7 @@ function getMeeting(title) {
 Dial In: +1 646 558 8656	Access Code: 856 7471 3054#
 Register in advance for this meeting:
 https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
+
                 break;
             case 'B':
                 meet = `Meeting ID:	832 4836 8602
@@ -217,6 +218,7 @@ Thank you,`
 const init = () => {
 inquirify()
     .then((answers) => writeFileAsync('NPUNGLR8.txt', ReadMeNOW(answers)))
+    .then((answers) => console.log(ReadMeNOW(answers)))
     .then(() => console.log('NPUNGLIFY!!'))
     .catch((err) => console.error(err));
 };
