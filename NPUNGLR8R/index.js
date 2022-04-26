@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 let meet = '';
-const util = require('util');
+let chair = '';
+let planner = '';
+// const util = require('util');
 
 
 // inquirer prompts and stores responses
@@ -238,7 +240,7 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
                 planner = `Samantha Terry snterry@atlantaga.gov`
             break;
             }
-        return meet, chair, planner
+        return (meet, chair, planner)
 };
 
 
@@ -254,14 +256,14 @@ Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (atlantaga.gov)
 
 NPU-${answers.title} | ${answers.date}
 
-${getMeeting(answers.title)}
+${getMeeting(meet)}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
 If you desire additional information regarding NPU-${answers.title}, please contact the following person(s):
 
-NPU Chair: ${getMeeting(answers.chair)}
-NPU Planner: ${getMeeting(answers.planner)}
+NPU Chair: ${getMeeting(chair)}
+NPU Planner: ${getMeeting(planner)}
 
 Thank you,`
 };
