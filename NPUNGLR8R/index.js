@@ -1,8 +1,7 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
+let meet = '';
 const util = require('util');
 
-const writeFileAsync = util.promisify(fs.writeFile);
 
 // inquirer prompts and stores responses
 const inquirify = () => {
@@ -34,7 +33,6 @@ function getMeeting(title) {
 Dial In: +1 646 558 8656	Access Code: 856 7471 3054#
 Register in advance for this meeting:
 https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
-
                 break;
             case 'B':
                 meet = `Meeting ID:	832 4836 8602
@@ -189,7 +187,7 @@ Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
             break;
             }
-        return meet
+        return(meet)
 };
 
 function ReadMeNOW(answers) {
@@ -201,9 +199,9 @@ Agendas for monthly NPU meetings are posted on our website:
 
 Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (atlantaga.gov)
 
-NPU-${answers.title} | ${answers.date}.
+NPU-${answers.title} | ${answers.date}
 
-${answers.meet}
+${meet}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
@@ -216,10 +214,8 @@ Thank you,`
 };
 
 const init = () => {
-inquirify()
-    .then((answers) => writeFileAsync('NPUNGLR8.txt', ReadMeNOW(answers)))
+    inquirify()
     .then((answers) => console.log(ReadMeNOW(answers)))
-    .then(() => console.log('NPUNGLIFY!!'))
     .catch((err) => console.error(err));
 };
 
