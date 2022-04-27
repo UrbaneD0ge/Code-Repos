@@ -91,156 +91,159 @@ https://us06web.zoom.us/meeting/register/tJcof-mhrTsoGNbC6XrB8Sr6HKX7E8hPLfjH`
 Dial In: +1 646-558-8656 	Access Code:  976 5253 7837#
 Register in advance for this meeting:
 https://zoom.us/j/97652537837`
-                chair = `R.R. Harris harrischairnpuh@gmail.com`
-                planner = `Natasha Dyer ndyer@atlantaga.gov`
+                let chair = `R.R. Harris harrischairnpuh@gmail.com`
+                let planner = `Natasha Dyer ndyer@atlantaga.gov`
                 break;
             case 'I':
-                meet = `Meeting ID:	926 1333 2610
+                let meet = `Meeting ID:	926 1333 2610
 Dial In: +1 646-558-8656 	Access Code:  926 1333 2610#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJYrduqrrTksG9Q0zhO-fIWbSdULod3adqpH`
-                chair = `Eunice M. Glover Chair.npui@gmail.com`
-                planner = `Susan Coleman sucoleman@atlantaga.gov`
+                let chair = `Eunice M. Glover Chair.npui@gmail.com`
+                let planner = `Susan Coleman sucoleman@atlantaga.gov`
                 break;
             case 'J':
-                meet = `Meeting ID:	914 9575 9127
+                let meet = `Meeting ID:	914 9575 9127
 Dial In: +1 646-558-8656 	Access Code:  914 9575 9127#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJUpfuyvqzIrGNPisSUqavtB5wdLiJTeHVFD`
-                chair = `Anissa Ferrell	chair@npujatlanta.com`
-                planner = `Keyetta Holmes kmholmes@atlantaga.gov`
+                let chair = `Anissa Ferrell	chair@npujatlanta.com`
+                let planner = `Keyetta Holmes kmholmes@atlantaga.gov`
                 break;
             case 'K':
-                meet = `Meeting ID:	961 2883 9632
+                let meet = `Meeting ID:	961 2883 9632
 Dial In: +1 646 558 8656	Access Code: 961 2883 9632#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJ0pfuuuqjosG9SFlf4neD6B5HLB18AX5zGe`
-                chair = `Mohamed Sillah	npukatlanta@gmail.com`
-                planner = `Tshaka Warren twarren@atlantaga.gov`
+                let chair = `Mohamed Sillah	npukatlanta@gmail.com`
+                let planner = `Tshaka Warren twarren@atlantaga.gov`
             break;
             case 'L':
-                meet = `Meeting ID:	961 2883 9632
+                let meet = `Meeting ID:	961 2883 9632
 Dial In: +1 646 558 8656	Access Code: 961 2883 9632#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJIsdeGgrTIsGda9TZkaUfsNakMmS0zxpVe4`
-                chair = `Shade'Y. Jones	chair@npulatlanta.org`
-                planner = `Lenise Lyons llyons@atlantaga.gov`
+                let chair = `Shade'Y. Jones	chair@npulatlanta.org`
+                let planner = `Lenise Lyons llyons@atlantaga.gov`
             break;
             case 'M':
-                meet = `Meeting ID:	972 3364 7127
+                let meet = `Meeting ID:	972 3364 7127
 Dial In: +1 646 558 8656	Access Code: 972 3364 7127#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJMvdOquqjwrGNMzjeUO15u88PSooneRz2Fp`
-                chair = `Forrest Coley	chair@npumatlanta.org`
-                planner = `Matt Adams mdadams@atlantaga.gov`
+                let chair = `Forrest Coley	chair@npumatlanta.org`
+                let planner = `Matt Adams mdadams@atlantaga.gov`
             break;
             case 'N':
-                meet = `Meeting ID:	970 8448 6658
+                let meet = `Meeting ID:	970 8448 6658
 Dial In: +1 646 558 8656	Access Code: 970 8448 6658#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJMtf-2spj0sH9z2bFgZI2LX-Bna7OWVyoFq`
-                chair = `Catherine Woodling	npunchair@gmail.com`
-                planner = `Daniel Vasquez dvasquez@atlantaga.gov`
+                let chair = `Catherine Woodling	npunchair@gmail.com`
+                let planner = `Daniel Vasquez dvasquez@atlantaga.gov`
             break;
             case 'O':
-                meet = `Meeting ID:	812 4045 1335
+                let meet = `Meeting ID:	812 4045 1335
 Dial In: +1 646 558 8656	Access Code: 812 4045 1335#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJIsdeGgrTIsGda9TZkaUfsNakMmS0zxpVe4`
-                chair = `Jeanne Tropper	chair@atlantanpuo.org`
-                planner = `Racquel Jackson acanales@atlantaga.gov`
+                let chair = `Jeanne Tropper	chair@atlantanpuo.org`
+                let planner = `Racquel Jackson acanales@atlantaga.gov`
             break;
             case 'P':
-                meet = `Meeting ID:	940 8702 7097
+                let meet = `Meeting ID:	940 8702 7097
 Dial In: +1 646 558 8656	Access Code: 940 8702 7097#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJAtf-6orDwqE9MQK1U4WkG2s0y9ZSsZj55C`
-                chair = `Reginald Rushin Rushinr58@gmail.com`
-                planner = `Nicole Mitchell nymitchell@atlantaga.gov`
+                let chair = `Reginald Rushin Rushinr58@gmail.com`
+                let planner = `Nicole Mitchell nymitchell@atlantaga.gov`
             break;
             case 'Q':
-                meet = `Meeting ID:	985 5727 1692
+                let meet = `Meeting ID:	985 5727 1692
 Dial In: +1 646 558 8656	Access Code: 985 5727 1692#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJwocu6qqTosE9bW-XHCnSGMWaOAnKCKqrkS`
-                chair = `Corrie McCrary	corriemccrary@bellsouth.net`
-                planner = `Inyo Cue icue@atlantaga.gov`
+                let chair = `Corrie McCrary	corriemccrary@bellsouth.net`
+                let planner = `Inyo Cue icue@atlantaga.gov`
             break;
             case 'R':
-                meet = `Meeting ID:	886 2169 6544
+                let meet = `Meeting ID:	886 2169 6544
 Dial In: +1 646 558 8656	Access Code: 886 2169 6544#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tZwrdeiupz0vHtCSIPdEIa-N6avVbaNnGXlb`
-                chair = `Donovan A. Dodds npur.exc@gmail.com`
-                planner = `Tony McNeal mmcneal@atlantaga.gov`
+                let chair = `Donovan A. Dodds npur.exc@gmail.com`
+                let planner = `Tony McNeal mmcneal@atlantaga.gov`
             break;
             case 'S':
-                meet = `Meeting ID:	993 2987 4388
+                let meet = `Meeting ID:	993 2987 4388
 Dial In: +1 646 558 8656	Access Code: 993 2987 4388#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJ0udeCgqT8pEtycXQZ9s7Tk4_0J_73DZmQD`
-                chair = `Nick Hess chair@npu-s.org`
-                planner = `Chris McIntosh cmintosh@atlantaga.gov`
+                let chair = `Nick Hess chair@npu-s.org`
+                let planner = `Chris McIntosh cmintosh@atlantaga.gov`
             break;
             case 'T':
-                meet = `Meeting ID:	973 7964 7582
+                let meet = `Meeting ID:	973 7964 7582
 Dial In: +1 646 558 8656	Access Code: 973 7964 7582#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJMucOCuqjwvEtbo8Vddwe6J5Ykv5858FP9y`
-                chair = `Angela Clyde chair@nputatlanta.com`
-                planner = `Monique Forte mbforte@atlantaga.gov`
+                let chair = `Angela Clyde chair@nputatlanta.com`
+                let planner = `Monique Forte mbforte@atlantaga.gov`
             break;
             case 'V':
-                meet = `Meeting ID:	992 1132 0112
+                let meet = `Meeting ID:	992 1132 0112
 Dial In: +1 646 558 8656	Access Code: 992 1132 0112#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJ0vduirrDsrG9Zu7U9P7xTvxATCljNqAgyJ`
-                chair = `Stephanie Flowers stephanieflowers@bellsouth.net`
-                planner = `Nathan Brown nathanbrown@atlantaga.gov`
+                let chair = `Stephanie Flowers stephanieflowers@bellsouth.net`
+                let planner = `Nathan Brown nathanbrown@atlantaga.gov`
             break;
             case 'W':
-                meet = `Meeting ID:	916 2580 5725
+                let meet = `Meeting ID:	916 2580 5725
 Dial In: +1 646 558 8656	Access Code: 916 2580 5725#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJUrdeygrj4tGNFBx8eTSLrBvv1Zy4uPsqgD`
-                chair = `Ronald Lall leadership@npu-w.org`
-                planner = `Christian Olteanu colteanu@atlantaga.gov`
+                let chair = `Ronald Lall leadership@npu-w.org`
+                let planner = `Christian Olteanu colteanu@atlantaga.gov`
             break;
             case 'X':
-                meet = `Meeting ID:	940 6017 9815
+                let meet = `Meeting ID:	940 6017 9815
 Dial In: +1 646 558 8656	Access Code: 940 6017 9815#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJAtcempqTIiG9Gd_h-5Tcordb6gJXHz14r1`
-                chair = `Zachary Adriaenssens Zadriaenssens3@gmail.com`
-                planner = `Nate Hoelzel nhoelzel@atlantaga.gov`
+                let chair = `Zachary Adriaenssens Zadriaenssens3@gmail.com`
+                let planner = `Nate Hoelzel nhoelzel@atlantaga.gov`
             break;
             case 'Y':
-                meet = `Meeting ID:	956 6564 6943
+                let meet = `Meeting ID:	956 6564 6943
 Dial In: +1 646 558 8656	Access Code: 956 6564 6943#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJAtcempqTIiG9Gd_h-5Tcordb6gJXHz14r1`
-                chair = `Troy Nunnally troynunnally@brainrainsolutions.com`
-                planner = `Anna A. Johnson anajohnson@atlantaga.gov`
+                let chair = `Troy Nunnally troynunnally@brainrainsolutions.com`
+                let planner = `Anna A. Johnson anajohnson@atlantaga.gov`
             break;
             case 'Z':
-                meet = `Meeting ID:	929 8209 4616
+                let meet = `Meeting ID:	929 8209 4616
 Dial In: +1 646 558 8656	Access Code: 929 8209 4616#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJYkf-uopz8sG9J66kd94W5qRcrwP2Qb_jQ7`
-                chair = `Anne E. Phillips anne.phillips@bellsouth.net`
-                planner = `Thomas Otoo totoo@atlantaga.gov`
+                let chair = `Anne E. Phillips anne.phillips@bellsouth.net`
+                let planner = `Thomas Otoo totoo@atlantaga.gov`
             break;
             case 'APAB':
-                meet = `Meeting ID: 947 9575 5692
+                let meet = `Meeting ID: 947 9575 5692
 Dial In: +1 646-558-8656
 Access Code: 947 9575 5692#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
-                chair = `Anne E. Phillips anne.phillips@bellsouth.net`
-                planner = `Samantha Terry snterry@atlantaga.gov`
-            break;
+                let chair = `Anne E. Phillips anne.phillips@bellsouth.net`
+                let planner = `Samantha Terry snterry@atlantaga.gov`
+                break;
+            default:
+                console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
+                break;
             }
-        return (meet, chair, planner)
+    return meet
 };
 
 
