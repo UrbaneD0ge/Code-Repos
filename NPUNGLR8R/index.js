@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
-let meet = '';
-let chair = '';
-let planner = '';
+// let meet = '';
+// let chair = '';
+// let planner = '';
 // const util = require('util');
 
 
@@ -34,16 +34,17 @@ let inquirify = () => {
 };
 
 
-function getMeeting(title) {
-        switch(title) {
-            case 'A':
-                meet = `Meeting ID:	856 7471 3054
+function getMeeting(answers) {
+        switch(answers.title) {
+            case 'A': {
+            meet = `Meeting ID:	856 7471 3054
 Dial In: +1 646 558 8656	Access Code: 856 7471 3054#
 Register in advance for this meeting:
 https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
-                chair = `Brinkley Dickerson	wbdnatl@gmail.com`
-                planner = `Joel Carnow jdcarnow@atlantaga.gov`
-                break;
+            chair = `Brinkley Dickerson	wbdnatl@gmail.com`
+            planner = `Joel Carnow jdcarnow@atlantaga.gov`
+            break;
+            }
             case 'B':
                 meet = `Meeting ID:	832 4836 8602
 Dial In: +1 646 558 8656	Access Code: 832 4836 8602#
@@ -249,12 +250,9 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
             //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
             //     break;
             }
-    // switch (title)
-
-    return (meet, planner, chair);
+    // return object values
+    return [ meet, chair, planner ];
 };
-
-
 
 function ReadMeNOW(answers) {
 return `Greetings!
@@ -263,24 +261,25 @@ You are receiving this e-mail because you opted in for monthly meeting notices f
 
 Agendas for monthly NPU meetings are posted on our website:
 
-Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (atlantaga.gov)
+Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)
 
 NPU-${answers.title} | ${answers.date}
 
-${getMeeting(meet)}
+${meet}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
 If you desire additional information regarding NPU-${answers.title}, please contact the following person(s):
 
-NPU Chair: ${getMeeting(chair)}
-NPU Planner: ${getMeeting(planner)}
+NPU Chair: ${chair}
+NPU Planner: ${planner}
 
 Thank you,`
 };
 
 const init = () => {
     inquirify()
+    .then(getMeeting())
     .then((answers) => console.log(ReadMeNOW(answers)))
     .catch((err) => console.error(err));
 };

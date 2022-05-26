@@ -16,8 +16,8 @@ inquirer
       message: 'Date?',
     }
   ])
-  .then((title) => {
-    switch (title) {
+  .then((answers) => {
+    switch (answers.title) {
       case 'A':
         meet = `Meeting ID:	856 7471 3054
 Dial In: +1 646 558 8656	Access Code: 856 7471 3054#
