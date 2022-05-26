@@ -6,7 +6,7 @@ let planner = '';
 
 
 // inquirer prompts and stores responses
-const inquirify = () => {
+let inquirify = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -23,6 +23,12 @@ const inquirify = () => {
         //     name: 'docType',
         //     message: 'What document are we generating?',
         //     choices: ['Draft to Chair', 'Final to Chair', 'Nextdoor Post', 'Distro eMail', 'NTA']
+        // },
+        // {
+        //  type: 'confirm',
+        //  name: 'output',
+        //  message: 'Output to .txt file?'
+        //  default: 'false'
         // }
     ]);
 };
@@ -239,11 +245,12 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
                 chair = `Anne E. Phillips anne.phillips@bellsouth.net`
                 planner = `Samantha Terry snterry@atlantaga.gov`
                 break;
-            default:
-                console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
-                break;
+            // default:
+            //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
+            //     break;
             }
-    console.log(meet);
+    // switch (title)
+
     return (meet, planner, chair);
 };
 
