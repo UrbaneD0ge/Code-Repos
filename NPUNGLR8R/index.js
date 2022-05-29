@@ -1,12 +1,10 @@
 const inquirer = require('inquirer');
-// let meet = '';
-// let chair = '';
-// let planner = '';
-// const util = require('util');
 
+// const util = require('util');
+const fs = require('fs');
 
 // inquirer prompts and stores responses
-let inquirify = () => {
+function inquirify() {
     return inquirer.prompt([
         {
             type: 'input',
@@ -34,7 +32,7 @@ let inquirify = () => {
 };
 
 
-function getMeeting(answers) {
+async function getMeeting(answers) {
         switch(answers.title) {
             case 'A': {
             meet = `Meeting ID:	856 7471 3054
@@ -250,38 +248,62 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
             //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
             //     break;
             }
-    // return object values
-    return [ meet, chair, planner ];
+    Object.assign(answers,{meet:meet,chair:chair,planner:planner});
+    return answers;
 };
 
-function ReadMeNOW(answers) {
+function ReadMeNOW(meeting) {
 return `Greetings!
 
-You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${answers.title}.
+You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.
 
 Agendas for monthly NPU meetings are posted on our website:
 
 Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)
 
-NPU-${answers.title} | ${answers.date}
+NPU-${meeting.title} | ${meeting.date}
 
-${meet}
+${meeting.meet}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
-If you desire additional information regarding NPU-${answers.title}, please contact the following person(s):
+If you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):
 
-NPU Chair: ${chair}
-NPU Planner: ${planner}
+NPU Chair: ${meeting.chair}
+NPU Planner: ${meeting.planner}
 
-Thank you,`
+Thank you,
+--------
+Good afternoon,
+
+The NPU-${meeting.title} May meeting will be held remotely.
+
+NPU-${meeting.title} | ${meeting.date}
+${meeting.meet}
+
+Please continue to work with NPU-${meeting.title} Chair ${meeting.chair} to confirm details of your presentation.
+
+Thank you,
+--------
+Good afternoon,
+
+Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has been approved.
+Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} to iron out the details of the presentation.
+
+Thank you,
+--------`
 };
 
-const init = () => {
-    inquirify()
-    .then(getMeeting())
-    .then((answers) => console.log(ReadMeNOW(answers)))
-    .catch((err) => console.error(err));
+const init = async () => {
+    let meetingDetails =
+        await inquirify()
+        .then((answers) => getMeeting(answers))
+        .then((meeting) => ReadMeNOW(meeting))
+        .catch((err) => console.error(err));
+    //let meeting = await inquirify().then((answers) => getMeeting(answers));
+    //ReadMeNOW(meeting);
+
+    fs.writeFile('NPUscript.txt', meetingDetails, null, () => { });
 };
 
 init();

@@ -230,6 +230,7 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
     }
   })
   .then((answers) => {
+    console.log(meet);
     return `Greetings!
 
 You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${answers.title}.
@@ -240,14 +241,14 @@ Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (atlantaga.gov)
 
 NPU-${answers.title} | ${answers.date}
 
-${getMeeting(meet)}
+${meet}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
 If you desire additional information regarding NPU-${answers.title}, please contact the following person(s):
 
-NPU Chair: ${getMeeting(chair)}
-NPU Planner: ${getMeeting(planner)}
+NPU Chair: ${chair}
+NPU Planner: ${planner}
 
 Thank you,
 --------
@@ -256,15 +257,15 @@ Good afternoon,
 The NPU-F May meeting will be held remotely.
 
 NPU-${answers.title} | ${answers.date}
-${getMeeting(meet)}
+${meet}
 
-Please continue to work with NPU-${answers.title} Chair ${getMeeting(chair)} to confirm details of your presentation.
+Please continue to work with NPU-${answers.title} Chair ${chair} to confirm details of your presentation.
 
 Thank you,
 --------
 Good afternoon,
 Your request to present at the NPU-${answers.title} ${answers.date} meeting has been approved.
-Please reach out to chair NPU-${answers.title} Chair ${getMeeting(chair)} to iron out the details of the presentation.
+Please reach out to chair NPU-${answers.title} Chair ${chair} to iron out the details of the presentation.
 
 Thank you,
 --------
@@ -279,16 +280,16 @@ Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (atlantaga.gov)
 
 DATE/TIME: ${answers.date}
 LOCATION: Virtual
-${getMeeting(meet)}
+${meet}
 
 City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
 
 If you desire additional information regarding NPU-${answers.title}, please contact the following person(s):
 
-NPU Chair: ${getMeeting(chair)}
-NPU Planner: ${getMeeting(planner)}
+NPU Chair: ${chair}
+NPU Planner: ${planner}
 
 Thank you,
 
 `
-  });
+});
