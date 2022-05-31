@@ -291,7 +291,18 @@ Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has 
 Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} to iron out the details of the presentation.
 
 Thank you,
---------`
+--------
+NPU-${meeting.title} | ${meeting.date}, TIME
+Hey Neighbors!
+
+The summer is upon us and Atlanta is growing as fast as the Kudzu. Attend your NPU meetings to hear what's happening in your neighborhood, and have your say on the projects and events that affect you!
+
+NPU-${meeting.title} meets next ${meeting.date}, at TIME
+
+${meeting.meet}
+
+Thank you,
+`
 };
 
 const init = async () => {
