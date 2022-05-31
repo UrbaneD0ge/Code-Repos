@@ -16,18 +16,18 @@ function inquirify() {
             name: 'date',
             message: 'Date?',
         },
+        {
+         type: 'confirm',
+         name: 'output',
+         message: 'Output to .txt file?',
+         default: 'false'
+        }
         // {
         //     type: 'list',
         //     name: 'docType',
         //     message: 'What document are we generating?',
         //     choices: ['Draft to Chair', 'Final to Chair', 'Nextdoor Post', 'Distro eMail', 'NTA']
         // },
-        // {
-        //  type: 'confirm',
-        //  name: 'output',
-        //  message: 'Output to .txt file?'
-        //  default: 'false'
-        // }
     ]);
 };
 
@@ -386,13 +386,13 @@ Thank you,
 const init = async () => {
     let meetingDetails =
         await inquirify()
-        .then((answers) => getMeeting(answers))
-        .then((meeting) => ReadMeNOW(meeting))
+        .then((answers) => getMeeting(answers)) //use inquirer answers to assign NPU meeting vars
+        .then((meeting) => ReadMeNOW(meeting)) //fill template literal with answers assigned to meeting vars
         .catch((err) => console.error(err));
     //let meeting = await inquirify().then((answers) => getMeeting(answers));
     //ReadMeNOW(meeting);
 
-    fs.writeFile('NPUscript.txt', meetingDetails, null, () => { });
+    fs.writeFile('NPUscript.txt', meetingDetails, null, () => { }); //write completed work to NPUscript.txt
 };
 
 init();
