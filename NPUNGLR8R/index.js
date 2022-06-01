@@ -271,7 +271,7 @@ https://us06web.zoom.us/meeting/register/tJ0vduirrDsrG9Zu7U9P7xTvxATCljNqAgyJ`
 Dial In: +1 646 558 8656 Access Code: 916 2580 5725#
 Register in advance for this meeting:
 https://us06web.zoom.us/meeting/register/tJUrdeygrj4tGNFBx8eTSLrBvv1Zy4uPsqgD`
-                time = `7:30PM`
+                time = `7:00PM`
                 chair = `Ronald Lall`
                 chairE = `leadership@npu-w.org`
                 planner = `Christian Olteanu`
