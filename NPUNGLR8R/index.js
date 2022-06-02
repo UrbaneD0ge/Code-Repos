@@ -35,7 +35,8 @@ async function getMeeting(answers) {
         switch(answers.title) {
             case 'A':
                 meet = `Meeting ID: 856 7471 3054
-Dial In: +1 646 558 8656 Access Code: 856 7471 3054#`
+Dial In: +1 646 558 8656
+Access Code: 856 7471 3054#`
                 zURL = `https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
                 time = `7:00PM`
                 chair = `Brinkley Dickerson`
@@ -46,7 +47,8 @@ Dial In: +1 646 558 8656 Access Code: 856 7471 3054#`
             break;
             case 'B':
                 meet = `Meeting ID: 832 4836 8602
-Dial In: +1 646 558 8656 Access Code: 832 4836 8602#`
+Dial In: +1 646 558 8656
+Access Code: 832 4836 8602#`
                 zURL = `https://us06web.zoom.us/meeting/register/tZcvc-GrqDMsGtbvnnKzpDF2BbUXxQuxx_N9`
                 time = `7:00PM`
                 chair = `Nancy Bliwise`
@@ -57,7 +59,8 @@ Dial In: +1 646 558 8656 Access Code: 832 4836 8602#`
                 break;
             case 'C':
                 meet = `Meeting ID: 934 4511 6340
-Dial In: +1 646-558-8656 Access Code: 934 4511 6340#`
+Dial In: +1 646-558-8656
+Access Code: 934 4511 6340#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJcpc-yprz0pHtRSCH0nTWazoXg72njNpQ5R`
                 time = `7:00PM`
                 chair = `Zack Gober`
@@ -68,7 +71,8 @@ Dial In: +1 646-558-8656 Access Code: 934 4511 6340#`
                 break;
             case 'D':
                 meet = `Meeting ID: 953 5469 3520
-Dial In: +1 646-558-8656 Access Code: 953 5469 3520#`
+Dial In: +1 646-558-8656
+Access Code: 953 5469 3520#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJEucu2upzgvGNRkuGmiYcE2akuYMkFc1av`
                 time = `7:30PM`
                 chair = `Jim Martin`
@@ -90,7 +94,8 @@ Webinar ID: +1 929-436-2866`
                 break;
             case 'F':
                 meet = `Meeting ID: 928 1513 1493
-Dial In: +1 646-558-8656 Access Code: 928 1513 1493#`
+Dial In: +1 646-558-8656
+Access Code: 928 1513 1493#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJYlduyprTouE9c3GbvSNXk-QnBIMbRu-Zg3`
                 time = `7:00PM`
                 chair = `Debbie Skopczynski`
@@ -101,7 +106,8 @@ Dial In: +1 646-558-8656 Access Code: 928 1513 1493#`
                 break;
             case 'G':
                 meet = `Meeting ID: 935 8093 0222
-Dial In: +1 646-558-8656 Access Code: 935 8093 0222#`
+Dial In: +1 646-558-8656
+Access Code: 935 8093 0222#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJcof-mhrTsoGNbC6XrB8Sr6HKX7E8hPLfjH`
                 time = `7:00PM`
                 chair = `Andrew Anderson`
@@ -112,7 +118,8 @@ Dial In: +1 646-558-8656 Access Code: 935 8093 0222#`
                 break;
             case 'H':
                 meet = `Meeting ID: 976 5253 7837
-Dial In: +1 646-558-8656 Access Code: 976 5253 7837#`
+Dial In: +1 646-558-8656
+Access Code: 976 5253 7837#`
                 zURL = `https://zoom.us/j/97652537837`
                 time = `7:00PM`
                 chair = `R.R. Harris`
@@ -123,7 +130,8 @@ Dial In: +1 646-558-8656 Access Code: 976 5253 7837#`
                 break;
             case 'I':
                 meet = `Meeting ID: 926 1333 2610
-Dial In: +1 646-558-8656 Access Code: 926 1333 2610#`
+Dial In: +1 646-558-8656
+Access Code: 926 1333 2610#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJYrduqrrTksG9Q0zhO-fIWbSdULod3adqpH`
                 time = `7:00PM`
                 chair = `Eunice M. Glover`
@@ -134,7 +142,8 @@ Dial In: +1 646-558-8656 Access Code: 926 1333 2610#`
                 break;
             case 'J':
                 meet = `Meeting ID: 914 9575 9127
-Dial In: +1 646-558-8656 Access Code: 914 9575 9127#`
+Dial In: +1 646-558-8656
+Access Code: 914 9575 9127#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJUpfuyvqzIrGNPisSUqavtB5wdLiJTeHVFD`
                 time = `7:00PM`
                 chair = `Anissa Ferrell`
@@ -145,7 +154,8 @@ Dial In: +1 646-558-8656 Access Code: 914 9575 9127#`
                 break;
             case 'K':
                 meet = `Meeting ID: 961 2883 9632
-Dial In: +1 646 558 8656 Access Code: 961 2883 9632#`
+Dial In: +1 646 558 8656
+Access Code: 961 2883 9632#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJ0pfuuuqjosG9SFlf4neD6B5HLB18AX5zGe`
                 time = `6:30PM`
                 chair = `Mohamed Sillah`
@@ -156,7 +166,8 @@ Dial In: +1 646 558 8656 Access Code: 961 2883 9632#`
             break;
             case 'L':
                 meet = `Meeting ID: 961 2883 9632
-Dial In: +1 646 558 8656 Access Code: 961 2883 9632#`
+Dial In: +1 646 558 8656
+Access Code: 961 2883 9632#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJIsdeGgrTIsGda9TZkaUfsNakMmS0zxpVe4`
                 time = `6:30PM`
                 chair = `Shade'Y. Jones`
@@ -167,7 +178,8 @@ Dial In: +1 646 558 8656 Access Code: 961 2883 9632#`
             break;
             case 'M':
                 meet = `Meeting ID: 972 3364 7127
-Dial In: +1 646 558 8656 Access Code: 972 3364 7127#`
+Dial In: +1 646 558 8656
+Access Code: 972 3364 7127#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJMvdOquqjwrGNMzjeUO15u88PSooneRz2Fp`
                 time = `6:15PM`
                 chair = `Forrest Coley`
@@ -178,7 +190,8 @@ Dial In: +1 646 558 8656 Access Code: 972 3364 7127#`
             break;
             case 'N':
                 meet = `Meeting ID: 970 8448 6658
-Dial In: +1 646 558 8656 Access Code: 970 8448 6658#`
+Dial In: +1 646 558 8656
+Access Code: 970 8448 6658#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJMtf-2spj0sH9z2bFgZI2LX-Bna7OWVyoFq`
                 time = `7:00PM`
                 chair = `Catherine Woodling`
@@ -189,7 +202,8 @@ Dial In: +1 646 558 8656 Access Code: 970 8448 6658#`
             break;
             case 'O':
                 meet = `Meeting ID: 812 4045 1335
-Dial In: +1 646 558 8656 Access Code: 812 4045 1335#`
+Dial In: +1 646 558 8656
+Access Code: 812 4045 1335#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJIsdeGgrTIsGda9TZkaUfsNakMmS0zxpVe4`
                 time = `6:30PM`
                 chair = `Jeanne Tropper`
@@ -200,7 +214,8 @@ Dial In: +1 646 558 8656 Access Code: 812 4045 1335#`
             break;
             case 'P':
                 meet = `Meeting ID: 940 8702 7097
-Dial In: +1 646 558 8656 Access Code: 940 8702 7097#`
+Dial In: +1 646 558 8656
+Access Code: 940 8702 7097#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJAtf-6orDwqE9MQK1U4WkG2s0y9ZSsZj55C`
                 time = `7:00PM`
                 chair = `Reginald Rushin`
@@ -211,7 +226,8 @@ Dial In: +1 646 558 8656 Access Code: 940 8702 7097#`
             break;
             case 'Q':
                 meet = `Meeting ID: 985 5727 1692
-Dial In: +1 646 558 8656 Access Code: 985 5727 1692#`
+Dial In: +1 646 558 8656
+Access Code: 985 5727 1692#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJwocu6qqTosE9bW-XHCnSGMWaOAnKCKqrkS`
                 time = `6:30PM`
                 chair = `Corrie McCrary`
@@ -222,7 +238,8 @@ Dial In: +1 646 558 8656 Access Code: 985 5727 1692#`
             break;
             case 'R':
                 meet = `Meeting ID: 886 2169 6544
-Dial In: +1 646 558 8656 Access Code: 886 2169 6544#`
+Dial In: +1 646 558 8656
+Access Code: 886 2169 6544#`
                 zURL = `https://us06web.zoom.us/meeting/register/tZwrdeiupz0vHtCSIPdEIa-N6avVbaNnGXlb`
                 time = `7:00PM`
                 chair = `Donovan A. Dodds`
@@ -233,7 +250,8 @@ Dial In: +1 646 558 8656 Access Code: 886 2169 6544#`
             break;
             case 'S':
                 meet = `Meeting ID: 993 2987 4388
-Dial In: +1 646 558 8656 Access Code: 993 2987 4388#`
+Dial In: +1 646 558 8656
+Access Code: 993 2987 4388#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJ0udeCgqT8pEtycXQZ9s7Tk4_0J_73DZmQD`
                 time = `7:00PM`
                 chair = `Nick Hess`
@@ -244,7 +262,8 @@ Dial In: +1 646 558 8656 Access Code: 993 2987 4388#`
             break;
             case 'T':
                 meet = `Meeting ID: 973 7964 7582
-Dial In: +1 646 558 8656 Access Code: 973 7964 7582#`
+Dial In: +1 646 558 8656
+Access Code: 973 7964 7582#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJMucOCuqjwvEtbo8Vddwe6J5Ykv5858FP9y`
                 time = `7:00PM`
                 chair = `Angela Clyde`
@@ -255,7 +274,8 @@ Dial In: +1 646 558 8656 Access Code: 973 7964 7582#`
             break;
             case 'V':
                 meet = `Meeting ID: 992 1132 0112
-Dial In: +1 646 558 8656 Access Code: 992 1132 0112#`
+Dial In: +1 646 558 8656
+Access Code: 992 1132 0112#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJ0vduirrDsrG9Zu7U9P7xTvxATCljNqAgyJ`
                 time = `7:00PM`
                 chair = `Stephanie Flowers`
@@ -266,7 +286,8 @@ Dial In: +1 646 558 8656 Access Code: 992 1132 0112#`
             break;
             case 'W':
                 meet = `Meeting ID: 916 2580 5725
-Dial In: +1 646 558 8656 Access Code: 916 2580 5725#`
+Dial In: +1 646 558 8656
+Access Code: 916 2580 5725#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJUrdeygrj4tGNFBx8eTSLrBvv1Zy4uPsqgD`
                 time = `7:00PM`
                 chair = `Ronald Lall`
@@ -277,7 +298,8 @@ Dial In: +1 646 558 8656 Access Code: 916 2580 5725#`
             break;
             case 'X':
                 meet = `Meeting ID: 940 6017 9815
-Dial In: +1 646 558 8656 Access Code: 940 6017 9815#`
+Dial In: +1 646 558 8656
+Access Code: 940 6017 9815#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJAtcempqTIiG9Gd_h-5Tcordb6gJXHz14r1`
                 time = `7:00PM`
                 chair = `Zachary Adriaenssens`
@@ -288,7 +310,8 @@ Dial In: +1 646 558 8656 Access Code: 940 6017 9815#`
             break;
             case 'Y':
                 meet = `Meeting ID: 956 6564 6943
-Dial In: +1 646 558 8656 Access Code: 956 6564 6943#`
+Dial In: +1 646 558 8656
+Access Code: 956 6564 6943#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJAtcempqTIiG9Gd_h-5Tcordb6gJXHz14r1`
                 time = `7:00PM`
                 chair = `Troy Nunnally`
@@ -299,7 +322,8 @@ Dial In: +1 646 558 8656 Access Code: 956 6564 6943#`
             break;
             case 'Z':
                 meet = `Meeting ID: 929 8209 4616
-Dial In: +1 646 558 8656 Access Code: 929 8209 4616#`
+Dial In: +1 646 558 8656
+Access Code: 929 8209 4616#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJYkf-uopz8sG9J66kd94W5qRcrwP2Qb_jQ7`
                 time = `7:00PM`
                 chair = `Anne E. Phillips`
@@ -336,9 +360,14 @@ function ReadMeNOW(meeting) {
         <link rel="stylesheet" href="style.css">
       </head>
       <body>
+
+      <div>
+        <h2><a href="mailto=npu-${meeting.title}">DRAFT</a></h2>
+      </div>
+
         <div>
-      <h3><a href="mailto:npumail@atlantaga.gov?subject=NPU - ${meeting.title} Monthly Meeting Notification&subject=NPU – ${meeting.title} Monthly Meeting Notification&body=Greetings!%0D%0A%0D%0AYou are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.%0D%0A%0D%0AAgendas for monthly NPU meetings are posted on our website: https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts%0D%0A%0D%0ADATE: ${meeting.date}%0DTIME: ${meeting.time}%0DLOCATION: Virtual%0D%0A%0D%0ATo register in advance, go to:%0D${meeting.zURL}%0D${meeting.meet}%0D%0A%0D%0ACity of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
-      %0D%0A%0D%0AIf you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):%0D%0A%0D%0ANPU Chair: ${meeting.chair} (${meeting.chairE})%0DNPU Planner: ${meeting.planner} (${meeting.plannerE})%0D%0A%0D%0AThank you,">DISTRO LIST</a></h3>
+      <h2><a href="mailto:npumail@atlantaga.gov?subject=NPU - ${meeting.title} Monthly Meeting Notification&subject=NPU – ${meeting.title} Monthly Meeting Notification&body=Greetings!%0D%0A%0D%0AYou are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.%0D%0A%0D%0AAgendas for monthly NPU meetings are posted on our website: https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts%0D%0A%0D%0ADATE: ${meeting.date}%0DTIME: ${meeting.time}%0DLOCATION: Virtual%0D%0A%0D%0ATo register in advance, go to:%0D${meeting.zURL}%0D${meeting.meet}%0D%0A%0D%0ACity of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
+      %0D%0A%0D%0AIf you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):%0D%0A%0D%0ANPU Chair: ${meeting.chair} (${meeting.chairE})%0DNPU Planner: ${meeting.planner} (${meeting.plannerE})%0D%0A%0D%0AThank you,">DISTRO LIST</a></h2>
         <pre>
 NPU – ${meeting.title} Monthly Meeting Notification
 Greetings!
@@ -364,7 +393,8 @@ NPU Planner: ${meeting.planner} (${meeting.plannerE})
 
 Thank you,
 </div>
-<div><h3>VIRTUAL MEETING ACCESS INFO</h3>
+
+<div><h2>VIRTUAL MEETING ACCESS INFO</h2>
 <pre>NPU-${meeting.title} MONTH Virtual meeting access info
 Good afternoon,
 
@@ -378,7 +408,8 @@ Please continue to work with NPU-${meeting.title} Chair ${meeting.chair} (${meet
 
 Thank you,</pre>
 </div>
-<div><h3><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h3>
+
+<div><h2><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h2>
 <pre>
 Good afternoon,
 
@@ -387,7 +418,8 @@ Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} (${meeting
 
 Thank you,
 </pre></div>
-<div><h3>NEXTDOOR</h3>
+
+<div><h2>NEXTDOOR</h2>
 <pre>
 NPU-${meeting.title} | ${meeting.date}, ${meeting.time}
 Hey Neighbors!
@@ -400,6 +432,7 @@ ${meeting.meet}
 
 Thank you,
 </pre></div>
+
 </body>
 </html>
 `
