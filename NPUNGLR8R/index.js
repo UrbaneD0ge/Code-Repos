@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
-
-// const util = require('util');
+const util = require('util');
 const fs = require('fs');
 
 // inquirer prompts and stores responses
@@ -16,12 +15,12 @@ function inquirify() {
             name: 'date',
             message: 'Date?',
         },
-        {
-         type: 'confirm',
-         name: 'output',
-         message: 'Output to .txt file?',
-         default: 'false'
-        }
+        // {
+        //  type: 'confirm',
+        //  name: 'output',
+        //  message: 'Output to .txt file?',
+        //  default: 'false'
+        // }
         // {
         //     type: 'list',
         //     name: 'docType',
@@ -328,14 +327,25 @@ https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
 };
 
 function ReadMeNOW(meeting) {
-    return `NPU – ${meeting.title} Monthly Meeting Notification
+    return `<!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>NPUNGLR8r</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+      <body>
+        <div>
+      <h3><a href="mailto:${meeting.chairE}; ${meeting.plannerE}?subject=NPU - ${meeting.title} Monthly Meeting Notification&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov">DISTRO LIST</a></h3>
+        <pre>
+NPU – ${meeting.title} Monthly Meeting Notification
 Greetings!
 
 You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.
 
 Agendas for monthly NPU meetings are posted on our website:
 
-Neighborhood Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)
+<a href='https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts'>Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)</a>
 
 DATE: ${meeting.date}
 TIME: ${meeting.time}
@@ -350,8 +360,9 @@ NPU Chair: ${meeting.chair} (${meeting.chairE})
 NPU Planner: ${meeting.planner} (${meeting.plannerE})
 
 Thank you,
---------
-NPU-${meeting.title} MONTH Virtual meeting access info
+</div>
+<div><h3>VIRTUAL MEETING ACCESS INFO</h3>
+<pre>NPU-${meeting.title} MONTH Virtual meeting access info
 Good afternoon,
 
 The NPU-${meeting.title} May meeting will be held remotely.
@@ -361,15 +372,19 @@ ${meeting.meet}
 
 Please continue to work with NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to confirm details of your presentation.
 
-Thank you,
---------
+Thank you,</pre>
+</div>
+<div><h3>PRESENTATION REQ</h3>
+<pre>
 Good afternoon,
 
 Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has been approved.
 Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.
 
 Thank you,
---------
+</pre></div>
+<div><h3>NEXTDOOR</h3>
+<pre>
 NPU-${meeting.title} | ${meeting.date}, ${meeting.time}
 Hey Neighbors!
 
@@ -380,6 +395,9 @@ NPU-${meeting.title} meets next ${meeting.date}, at ${meeting.time}
 ${meeting.meet}
 
 Thank you,
+</pre></div>
+</body>
+</html>
 `
 };
 
@@ -392,7 +410,8 @@ const init = async () => {
     //let meeting = await inquirify().then((answers) => getMeeting(answers));
     //ReadMeNOW(meeting);
 
-    fs.writeFile('NPUscript.txt', meetingDetails, null, () => { }); //write completed work to NPUscript.txt
+    // fs.writeFile('NPUscript.txt', meetingDetails, null, () => { }); //write completed work to NPUscript.txt
+    fs.writeFile(('NPUscript.html'), meetingDetails, null, () => { }); //write completed work to NPUscript.html
 };
 
 init();
