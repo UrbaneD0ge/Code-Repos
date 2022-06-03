@@ -362,7 +362,16 @@ function ReadMeNOW(meeting) {
       <body>
 
       <div>
-        <h2><a href="mailto=npu-${meeting.title}">DRAFT</a></h2>
+        <h2><a href="mailto=npu-${meeting.title}?subject=${meeting.date} draft meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know by EOB DAYSBEFOREPUBL.%0D%0DThank you,">DRAFT</a></h2>
+    <pre>
+${meeting.date} draft meeting agenda
+
+Good day ${meeting.chairHon} and NPU-${meeting.title},
+
+Please see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know <u>by EOB DAYSBEFOREPUBL</u>.
+
+Thank you,
+    </pre>
       </div>
 
         <div>
@@ -411,9 +420,12 @@ Thank you,</pre>
 
 <div><h2><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h2>
 <pre>
-Good afternoon,
+<strong>[APPROVED] NPU-${meeting.title} ${meeting.date} presentation</strong>
+
+Hello,
 
 Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has been approved.
+
 Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.
 
 Thank you,
