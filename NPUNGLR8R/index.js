@@ -272,6 +272,18 @@ Access Code: 973 7964 7582#`
                 planner = `Monique Forte`
                 plannerE = `mbforte@atlantaga.gov`
             break;
+            case 'U':
+                meet = `Meeting ID: 123 4567 8901
+Dial In: +1 555 555 5555
+Access Code: 123 4567 8901#`
+                zURL = `https://kipdunlap.me/`
+                time = `10:24PM`
+                chair = `Kip Dunlap`
+                chairHon = `Mr. Dunlap`
+                chairE = `Kip@KipDunlap.me`
+                planner = `Simit`
+                plannerE = `Simit@KipDunlap.me`
+            break;
             case 'V':
                 meet = `Meeting ID: 992 1132 0112
 Dial In: +1 646 558 8656
@@ -337,6 +349,7 @@ Access Code: 929 8209 4616#`
 Dial In: +1 646-558-8656
 Access Code: 947 9575 5692#`
                 zURL = `https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
+                time = `10:00AM`
                 chair = `Anne E. Phillips`
                 chairHon = `Ms. Phillips`
                 chairE = `anne.phillips@bellsouth.net`
