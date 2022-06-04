@@ -383,8 +383,7 @@ Good day ${meeting.chairHon} and NPU-${meeting.title},
 
 Please see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.
 
-Thank you,
-    </pre>
+Thank you,</pre>
       </div>
 
       <div>
@@ -396,8 +395,7 @@ Good day ${meeting.chairHon} and NPU-${meeting.title},
 
 Please see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know <u>by EOB DAYSBEFOREPUBL</u>.
 
-Thank you,
-    </pre>
+Thank you,</pre>
       </div>
 
         <div>

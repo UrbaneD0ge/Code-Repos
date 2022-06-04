@@ -4,7 +4,7 @@ build
 npm-debug.log
 .env
 .DS_Store
-NPUscript.html
+*.html
 
 
 # Logs
@@ -113,3 +113,4 @@ dist
 # TernJS port file
 .tern-port
 .vscode/settings.json
+NPUNGLR8R/NPUscript.html
