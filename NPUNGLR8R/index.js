@@ -376,7 +376,7 @@ function ReadMeNOW(meeting) {
 
       <div>
         <h2><a href="mailto=npu-${meeting.title}?subject=${meeting.date} Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.%0D%0DThank you,">FINAL</a></h2>
-    <pre id='final'>
+    <pre id='final' onclick='copy(this)'>
 ${meeting.date} Final meeting agenda
 
 Good day ${meeting.chairHon} and NPU-${meeting.title},
@@ -389,7 +389,7 @@ Thank you,
 
       <div>
         <h2><a href="mailto:npu-${meeting.title}?subject=${meeting.date} draft meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know by EOB DAYSBEFOREPUBL.%0D%0DThank you,">DRAFT</a></h2>
-    <pre id='draft'>
+    <pre id='draft' onclick='copy(this)'>
 ${meeting.date} draft meeting agenda
 
 Good day ${meeting.chairHon} and NPU-${meeting.title},
@@ -403,7 +403,7 @@ Thank you,
         <div>
       <h2><a href="mailto:npumail@atlantaga.gov?subject=NPU - ${meeting.title} Monthly Meeting Notification&subject=NPU – ${meeting.title} Monthly Meeting Notification&body=Greetings!%0D%0A%0D%0AYou are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.%0D%0A%0D%0AAgendas for monthly NPU meetings are posted on our website: https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts%0D%0A%0D%0ADATE: ${meeting.date}%0DTIME: ${meeting.time}%0DLOCATION: Virtual%0D%0A%0D%0ATo register in advance, go to:%0D${meeting.zURL}%0D${meeting.meet}%0D%0A%0D%0ACity of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
       %0D%0A%0D%0AIf you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):%0D%0A%0D%0ANPU Chair: ${meeting.chair} (${meeting.chairE})%0DNPU Planner: ${meeting.planner} (${meeting.plannerE})%0D%0A%0D%0AThank you,">DISTRO LIST</a></h2>
-        <pre id='distro'>
+        <pre id='distro' onclick='copy(this)'>
 NPU – ${meeting.title} Monthly Meeting Notification
 Greetings!
 
@@ -430,7 +430,7 @@ Thank you,
 </pre></div>
 
 <div><h2>VIRTUAL MEETING ACCESS INFO</h2>
-<pre id='access'>NPU-${meeting.title} MONTH Virtual meeting access info
+<pre id='access' onclick='copy(this)'>NPU-${meeting.title} MONTH Virtual meeting access info
 Good afternoon,
 
 The NPU-${meeting.title} May meeting will be held remotely.
@@ -445,7 +445,7 @@ Thank you,</pre>
 </div>
 
 <div><h2><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h2>
-<pre id='approved'>
+<pre id='approved' onclick='copy(this)'>
 <strong>[APPROVED] NPU-${meeting.title} ${meeting.date} presentation</strong>
 
 Hello,
@@ -458,7 +458,7 @@ Thank you,
 </pre></div>
 
 <div><h2>NEXTDOOR</h2>
-<pre id='nextdoor'>
+<pre id='nextdoor' onclick='copy(this)'>
 NPU-${meeting.title} | ${meeting.date}, ${meeting.time}
 Hey Neighbors!
 
@@ -470,6 +470,23 @@ ${meeting.meet}
 
 Thank you,
 </pre></div>
+
+<script>
+// copy pre to clipboard on click
+function copy(that){
+  var inp = document.createElement('input');
+  document.body.appendChild(inp)
+  inp.value = that.textContent;
+  inp.select();
+  // document.execCommand('copy', false);
+  navigator.clipboard.writeText(inp.value).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+  inp.remove();
+}
+</script>
 
 </body>
 </html>

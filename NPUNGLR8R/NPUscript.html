@@ -97,7 +97,7 @@ Thank you,
 </pre></div>
 
 <div><h2>NEXTDOOR</h2>
-<pre id='nextdoor'>
+<pre id='nextdoor' onclick='copy(this)'>
 NPU-D | July 12th, 7:30PM
 Hey Neighbors!
 
@@ -111,6 +111,23 @@ Access Code: 953 5469 3520#
 
 Thank you,
 </pre></div>
+
+<script>
+// copy pre to clipboard on click
+function copy(that){
+  var inp = document.createElement('input');
+  document.body.appendChild(inp)
+  inp.value = that.textContent;
+  inp.select();
+  // document.execCommand('copy', false);
+  navigator.clipboard.writeText(inp.value).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+  inp.remove();
+}
+</script>
 
 </body>
 </html>

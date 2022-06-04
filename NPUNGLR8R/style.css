@@ -22,6 +22,11 @@ pre {
   word-wrap: break-word;
 }
 
+pre:hover {
+  /* background-color: darkgray; */
+  text-decoration: underline;
+}
+
 h2 {
   text-align: center;
 }
