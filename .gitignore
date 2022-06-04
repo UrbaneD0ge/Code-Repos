@@ -4,7 +4,7 @@ build
 npm-debug.log
 .env
 .DS_Store
-*.html
+NPUscript.html
 
 
 # Logs
