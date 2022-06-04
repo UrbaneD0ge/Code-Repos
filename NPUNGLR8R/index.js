@@ -21,12 +21,12 @@ function inquirify() {
         //  message: 'Output to .txt file?',
         //  default: 'false'
         // }
-        // {
-        //     type: 'list',
-        //     name: 'docType',
-        //     message: 'What document are we generating?',
-        //     choices: ['Draft to Chair', 'Final to Chair', 'Nextdoor Post', 'Distro eMail', 'NTA']
-        // },
+        {
+        type: 'list',
+        name: 'docType',
+        message: 'What document are we generating?',
+        choices: ['Final to Chair', 'Draft to Chair', 'Distro eMail', 'Access Info', 'Presentation Approved', 'Nextdoor Post',]
+        },
     ]);
 };
 
@@ -356,11 +356,113 @@ Access Code: 947 9575 5692#`
                 planner = `Samantha Terry`
                 plannerE = `snterry@atlantaga.gov`
                 break;
-            // default:
-            //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
-            //     break;
+            default:
+                console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
+                break;
             }
     Object.assign(answers,{meet:meet,chair:chair,planner:planner,time:time,chairE:chairE,plannerE:plannerE,zURL:zURL,chairHon:chairHon});
+    return answers;
+};
+
+async function pickForm(answers) {
+    switch (answers.docType) {
+        case 'Final to Chair':
+            doc = `<h2><a href="mailto=npu-${meeting.title}?subject=${meeting.date} Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.%0D%0DThank you,">FINAL</a></h2>
+            <pre id='final' onclick='copy(this)'>
+        ${meeting.date} Final meeting agenda
+
+        Good day ${meeting.chairHon} and NPU-${meeting.title},
+
+        Please see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.
+
+        Thank you,</pre>`
+            break;
+        case 'Draft to Chair':
+            doc = `<h2><a href="mailto:npu-${meeting.title}?subject=${meeting.date} draft meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know by EOB DAYSBEFOREPUBL.%0D%0DThank you,">DRAFT</a></h2>
+            <pre id='draft' onclick='copy(this)'>
+        ${meeting.date} draft meeting agenda
+
+        Good day ${meeting.chairHon} and NPU-${meeting.title},
+
+        Please see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know <u>by EOB DAYSBEFOREPUBL</u>.
+
+        Thank you,</pre>`
+            break;
+        case 'Distro eMail':
+            doc = `<h2><a href="mailto:npumail@atlantaga.gov?subject=NPU - ${meeting.title} Monthly Meeting Notification&subject=NPU – ${meeting.title} Monthly Meeting Notification&body=Greetings!%0D%0A%0D%0AYou are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.%0D%0A%0D%0AAgendas for monthly NPU meetings are posted on our website: https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts%0D%0A%0D%0ADATE: ${meeting.date}%0DTIME: ${meeting.time}%0DLOCATION: Virtual%0D%0A%0D%0ATo register in advance, go to:%0D${meeting.zURL}%0D${meeting.meet}%0D%0A%0D%0ACity of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
+            %0D%0A%0D%0AIf you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):%0D%0A%0D%0ANPU Chair: ${meeting.chair} (${meeting.chairE})%0DNPU Planner: ${meeting.planner} (${meeting.plannerE})%0D%0A%0D%0AThank you,">DISTRO LIST</a></h2>
+              <pre id='distro' onclick='copy(this)'>
+      NPU – ${meeting.title} Monthly Meeting Notification
+      Greetings!
+
+      You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.
+
+      Agendas for monthly NPU meetings are posted on our website:
+
+      <a href='https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts'>Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)</a>
+
+      DATE: ${meeting.date}
+      TIME: ${meeting.time}
+      LOCATION: Virtual
+      Register in advance by clicking <a href='${meeting.zURL}'>HERE</a>
+      ${meeting.meet}
+
+      City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
+
+      If you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):
+
+      NPU Chair: ${meeting.chair} (${meeting.chairE})
+      NPU Planner: ${meeting.planner} (${meeting.plannerE})
+
+      Thank you,
+      </pre>`
+            break;
+        case 'Access Info':
+            doc = `<h2>VIRTUAL MEETING ACCESS INFO</h2>
+            <pre id='access' onclick='copy(this)'>NPU-${meeting.title} MONTH Virtual meeting access info
+            Good afternoon,
+
+            The NPU-${meeting.title} May meeting will be held remotely.
+
+            NPU-${meeting.title} | ${meeting.date} ${meeting.time}
+            Register in advance by clicking <a href='${meeting.zURL}'>HERE</a>
+            ${meeting.meet}
+
+            Please continue to work with NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to confirm details of your presentation.
+
+            Thank you,</pre>`
+            break;
+        case 'Presentation Approved':
+            doc = `<h2><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h2>
+            <pre id='approved' onclick='copy(this)'>
+            <strong>[APPROVED] NPU-${meeting.title} ${meeting.date} presentation</strong>
+
+            Hello,
+
+            Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has been approved.
+
+            Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.
+
+            Thank you,
+            </pre>`
+            break;
+        case 'Nextdoor Post':
+            doc = `<h2>NEXTDOOR</h2>
+            <pre id='nextdoor' onclick='copy(this)'>
+            NPU-${meeting.title} | ${meeting.date}, ${meeting.time}
+            Hey Neighbors!
+
+            The summer is upon us and Atlanta is growing as fast as the Kudzu. Attend your NPU meetings to hear what's happening in your neighborhood, and have your say on the projects and events that affect you!
+
+            NPU-${meeting.title} meets next ${meeting.date}, at ${meeting.time}
+            To register in advance go to: ${meeting.zURL}
+            ${meeting.meet}
+
+            Thank you,
+            </pre>`
+            break;
+    }
+    Object.assign(answers, { doc: doc });
     return answers;
 };
 
@@ -375,99 +477,8 @@ function ReadMeNOW(meeting) {
       <body>
 
       <div>
-        <h2><a href="mailto=npu-${meeting.title}?subject=${meeting.date} Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.%0D%0DThank you,">FINAL</a></h2>
-    <pre id='final' onclick='copy(this)'>
-${meeting.date} Final meeting agenda
-
-Good day ${meeting.chairHon} and NPU-${meeting.title},
-
-Please see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.
-
-Thank you,</pre>
+        ${meeting.doc}
       </div>
-
-      <div>
-        <h2><a href="mailto:npu-${meeting.title}?subject=${meeting.date} draft meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know by EOB DAYSBEFOREPUBL.%0D%0DThank you,">DRAFT</a></h2>
-    <pre id='draft' onclick='copy(this)'>
-${meeting.date} draft meeting agenda
-
-Good day ${meeting.chairHon} and NPU-${meeting.title},
-
-Please see the attached draft version of the NPU-${meeting.title} ${meeting.date} meeting agenda. If you notice any items missing, miscategorized, or would like to make other edits please let me know <u>by EOB DAYSBEFOREPUBL</u>.
-
-Thank you,</pre>
-      </div>
-
-        <div>
-      <h2><a href="mailto:npumail@atlantaga.gov?subject=NPU - ${meeting.title} Monthly Meeting Notification&subject=NPU – ${meeting.title} Monthly Meeting Notification&body=Greetings!%0D%0A%0D%0AYou are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.%0D%0A%0D%0AAgendas for monthly NPU meetings are posted on our website: https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts%0D%0A%0D%0ADATE: ${meeting.date}%0DTIME: ${meeting.time}%0DLOCATION: Virtual%0D%0A%0D%0ATo register in advance, go to:%0D${meeting.zURL}%0D${meeting.meet}%0D%0A%0D%0ACity of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
-      %0D%0A%0D%0AIf you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):%0D%0A%0D%0ANPU Chair: ${meeting.chair} (${meeting.chairE})%0DNPU Planner: ${meeting.planner} (${meeting.plannerE})%0D%0A%0D%0AThank you,">DISTRO LIST</a></h2>
-        <pre id='distro' onclick='copy(this)'>
-NPU – ${meeting.title} Monthly Meeting Notification
-Greetings!
-
-You are receiving this e-mail because you opted in for monthly meeting notices for NPU-${meeting.title}.
-
-Agendas for monthly NPU meetings are posted on our website:
-
-<a href='https://www.atlantaga.gov/government/departments/city-planning/neighborhood-and-npu-contacts'>Directory and NPU Meeting Agendas | Atlanta, GA (AtlantaGA.gov)</a>
-
-DATE: ${meeting.date}
-TIME: ${meeting.time}
-LOCATION: Virtual
-Register in advance by clicking <a href='${meeting.zURL}'>HERE</a>
-${meeting.meet}
-
-City of Atlanta residents are encouraged to attend their local Neighborhood Planning Unit (NPU) meetings to review proposed development, applications for alcohol licenses and special events, as well as amendments to the City’s Zoning Ordinance and Comprehensive Development Plan. Thanks again for your commitment to being actively involved in the City of Atlanta’s future!
-
-If you desire additional information regarding NPU-${meeting.title}, please contact the following person(s):
-
-NPU Chair: ${meeting.chair} (${meeting.chairE})
-NPU Planner: ${meeting.planner} (${meeting.plannerE})
-
-Thank you,
-</pre></div>
-
-<div><h2>VIRTUAL MEETING ACCESS INFO</h2>
-<pre id='access' onclick='copy(this)'>NPU-${meeting.title} MONTH Virtual meeting access info
-Good afternoon,
-
-The NPU-${meeting.title} May meeting will be held remotely.
-
-NPU-${meeting.title} | ${meeting.date} ${meeting.time}
-Register in advance by clicking <a href='${meeting.zURL}'>HERE</a>
-${meeting.meet}
-
-Please continue to work with NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to confirm details of your presentation.
-
-Thank you,</pre>
-</div>
-
-<div><h2><a href="mailto:?subject=APPROVED NPU-${meeting.title} ${meeting.date} presentation&cc=kdunlap@atlantaga.gov; dvasquez@atlantaga.gov&body=Good afternoon,%0D%0A%0D%0AYour request to present at the NPU-${meeting.title} ${meeting.date} has been approved.%0D%0A%0D%0APlease reach out to ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.%0D%0A%0D%0AThank you,%0D%0A%0D%0A">PRESENTATION APPROVED</a></h2>
-<pre id='approved' onclick='copy(this)'>
-<strong>[APPROVED] NPU-${meeting.title} ${meeting.date} presentation</strong>
-
-Hello,
-
-Your request to present at the NPU-${meeting.title} ${meeting.date} meeting has been approved.
-
-Please reach out to chair NPU-${meeting.title} Chair ${meeting.chair} (${meeting.chairE}) to iron out the details of the presentation.
-
-Thank you,
-</pre></div>
-
-<div><h2>NEXTDOOR</h2>
-<pre id='nextdoor' onclick='copy(this)'>
-NPU-${meeting.title} | ${meeting.date}, ${meeting.time}
-Hey Neighbors!
-
-The summer is upon us and Atlanta is growing as fast as the Kudzu. Attend your NPU meetings to hear what's happening in your neighborhood, and have your say on the projects and events that affect you!
-
-NPU-${meeting.title} meets next ${meeting.date}, at ${meeting.time}
-To register in advance go to: ${meeting.zURL}
-${meeting.meet}
-
-Thank you,
-</pre></div>
 
 <script>
 // copy pre to clipboard on click
@@ -494,9 +505,10 @@ function copy(that){
 const init = async () => {
     let meetingDetails =
         await inquirify()
-        .then((answers) => getMeeting(answers)) //use inquirer answers to assign NPU meeting vars
-        .then((meeting) => ReadMeNOW(meeting)) //fill template literal with answers assigned to meeting vars
-        .catch((err) => console.error(err));
+            .then((answers) => getMeeting(answers)) //use inquirer answers to assign NPU meeting vars
+            .then((meeting) => ReadMeNOW(meeting)) //fill template literal with answers assigned to meeting vars
+            .then((answers) => pickForm(answers)) //use inquirer answers to select template(s) to fill
+            .catch((err) => console.error(err));
     //let meeting = await inquirify().then((answers) => getMeeting(answers));
     //ReadMeNOW(meeting);
 
