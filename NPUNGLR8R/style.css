@@ -7,13 +7,13 @@ div {
   background-color: white;
   /* width: 300px;
   height: 300px; */
-  margin: 20px;
+  margin: 25px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
 }
 
 pre {
-  font-size: 1.2em;
+  font-size: 1.3em;
   overflow-x: auto;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -29,4 +29,8 @@ pre:hover {
 
 h2 {
   text-align: center;
+}
+
+a {
+  color: initial;
 }
