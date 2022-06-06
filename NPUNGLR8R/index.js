@@ -375,7 +375,7 @@ function ReadMeNOW(meeting) {
       <body>
 
       <div>
-        <h2><a href="mailto=npu-${meeting.title}?subject=${meeting.date} Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.%0D%0DThank you,">FINAL</a></h2>
+        <h2><a href="mailto:npu-${meeting.title}?subject=${meeting.date} Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov&body=Good day ${meeting.chairHon} and NPU-${meeting.title},%0D%0DPlease see the attached Final version of the NPU-${meeting.title} ${meeting.date} meeting agenda.%0D%0DThank you,">FINAL</a></h2>
     <pre id='final' onclick='copy(this)'>
 ${meeting.date} Final meeting agenda
 
