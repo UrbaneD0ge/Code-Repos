@@ -431,7 +431,7 @@ Thank you,
 <pre id='access' onclick='copy(this)'>NPU-${meeting.title} MONTH Virtual meeting access info
 Good afternoon,
 
-The NPU-${meeting.title} May meeting will be held remotely.
+The NPU-${meeting.title} ${meeting.date} meeting will be held remotely.
 
 NPU-${meeting.title} | ${meeting.date} ${meeting.time}
 Register in advance by clicking <a href='${meeting.zURL}'>HERE</a>
