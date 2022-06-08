@@ -23,8 +23,7 @@ pre {
 }
 
 pre:hover {
-  /* background-color: darkgray; */
-  text-decoration: underline;
+  cursor: grab;
 }
 
 h2 {
