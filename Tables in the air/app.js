@@ -1,11 +1,8 @@
 var Airtable = require('airtable');
-var base = new Airtable({ apiKey: key }).base(base);
-var token = config.MY_API_TOKEN;
-var key = config.SECRET_API_KEY;
-var table = tblB2B8JGMosXXYBX;
+var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appMDLXS91cMvJWid');
 
 base('NPU Master List').select({
-  maxRecords: 3,
+  maxRecords: 25,
   view: "NPU Information Sheet"
 }).eachPage(function page(records, fetchNextPage) {
   // This function (`page`) will get called for each page of records.
