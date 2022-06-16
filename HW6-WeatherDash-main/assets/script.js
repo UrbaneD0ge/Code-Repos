@@ -197,7 +197,7 @@ function meteo(location) {
   var { lon } = location;
   var city = location.name;
   var apiUrl = `${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${weatherApiKey}`;
-  
+
   // Weather call
   fetch(apiUrl)
     .then(function (res) {
@@ -207,7 +207,7 @@ function meteo(location) {
       renderItems(city, data);
     })
     .catch(function (err) {
-      console.error(err); 
+      console.error(err);
     });
 }
 
