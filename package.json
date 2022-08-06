@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "airtable": "^0.11.4"
+    "airtable": "^0.11.4",
+    "parcel": "^2.7.0"
   }
 }
