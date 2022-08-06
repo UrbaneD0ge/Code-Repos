@@ -20,15 +20,14 @@ base('Table 1').create([
     //   "DeferTo:": ["3 Cycles"]
     // }
   }
-  ], function (err, records) {
-      if (err) {
-        console.error(err); return;
-      }
-      records.forEach(function (record) {
-        console.log(record.getID());
-      });
-    });
-
+], function (err, records) {
+  if (err) { console.error(err); return; }
+  records.forEach(function (record) {
+    console.log(record.getId());
+  }
+  );
+}
+);
 
 
 
