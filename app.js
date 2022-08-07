@@ -1,6 +1,8 @@
 var Airtable = require('airtable');
 var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appotIP5Ss3YUKYYR');
 
+let NPU = document.getElementById('NPU').selectedValue;
+
 // on submit, get the values from the form
 document.getElementById('submit').addEventListener('click', function (event) {
   base('Table 1').create([
