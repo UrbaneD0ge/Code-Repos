@@ -45,7 +45,20 @@
       </select>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Name">
-    <button type="submit" id='submit'>SUBMIT</button>
+      <select name='itmType' id='itmType' required>
+        <option hidden selected disabled>Type</option>
+        <option value='MOSE'>MOSE</option>
+        <option value='LRB'>LRB</option>
+        <option value='ZRB'>ZRB</option>
+        <option value='SUP'>SUP</option>
+        <option value='BZA'>BZA</option>
+        <option value='Text Amendment'>Text Amendment</option>
+        <option value='CDP'>CDP Amendment</option>
+        <option value='SD'>SD</option>
+        <option value='LOR'>LOR</option>
+        <option value='N/A'>Other...</option>
+      </select>
+    <button class="btn" type="submit" id='submit'>SUBMIT</button>
     </formgroup>
   </div>
   <!-- link app.js -->
