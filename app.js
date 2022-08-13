@@ -2,7 +2,6 @@ var Airtable = require('airtable');
 var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
-let suffix = document.getElementById('itmType').value;
 let applName = document.getElementById('name');
 
 // function to store the values of the form in local storage
@@ -111,6 +110,7 @@ submit.addEventListener('click', (e) => {
   // add text to cells
   itmTypeCell.innerText = itmType;
   itmTypeCell.prepend(deleteButton);
+  itmTypeCell.classList.add('itmType');
   deleteButton.setAttribute('type', 'button');
   deleteButton.setAttribute('class', 'btn-close');
   applNameCell.textContent = applName;
@@ -281,28 +281,38 @@ document.querySelector('#print').addEventListener('click', () => {
 
 // on save, get the values from the form
 document.getElementById('save').addEventListener('click', function (event) {
-  let NPU = document.getElementById('NPU').value;
-  let name = document.getElementById('name').value;
-  let itmType = document.getElementById('itmType').value;
-  let disposal = document.getElementById('disposal').value;
-  let deferTo = document.getElementById('deferTo').value;
-  let comments = document.getElementById('conditions').value;
+  // assign variables from table data classes
 
+  let NPU = document.getElementById('NPU').value;
+  let name = table.getElementsByClassName('applName')[0].textContent;
+  let itmType = table.getElementsByClassName('itmType')[0].textContent;
+  let disp = table.getElementsByClassName('disp')[0].textContent;
+  let comments = table.getElementsByClassName('comments')[0].innerText || '';
+  // let deferTo = document.getElementById('deferTo').value;
+  // if comments exist, get text from cell
+  // if no comments, set comments to empty string
+  if (comments === undefined) {
+    comments = '';
+  }
+
+  tableToArray();
+
+  // send array of objects to AirTable
   base('Table 1').create([
     {
       fields: {
         "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
         "fldck9li8kMT9xBLx": itmType,
         "fldYxaSmdxSjS1N0k": name,
-        "fldBuDdWpnXqlmr9T": [disposal],
+        "fldBuDdWpnXqlmr9T": [disp],
         "fldswanafOKIWEGy3": comments,
-        "fldMb04KSFvOpBXf9": [deferTo],
+        // "fldMb04KSFvOpBXf9": [deferTo],
       }
     }
   ], function (err, records) {
     if (err) { console.error(err); return; }
     records.forEach(function (record) {
-      console.log(record.getId());
+      console.log('New object created with id: ' + record.getId());
       console.log(record.fields);
     }
     );
@@ -310,3 +320,23 @@ document.getElementById('save').addEventListener('click', function (event) {
   );
 }
 );
+
+// turn each row and its comments into an array of objects
+function tableToArray() {
+  let table = document.getElementById('table');
+  let rows = table.querySelectorAll('tr');
+  let array = [];
+  for (let i = 0; i < rows.length; i++) {
+    let row = rows[i];
+    let cells = row.querySelectorAll('td');
+    let obj = {};
+    for (let j = 0; j < cells.length; j++) {
+      let cell = cells[j];
+      let cellName = cell.classList[0];
+      let cellValue = cell.textContent;
+      obj[cellName] = cellValue;
+    }
+    array.push(obj);
+  }
+  console.log(array);
+}
