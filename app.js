@@ -286,12 +286,12 @@ document.getElementById('save').addEventListener('click', function (event) {
   // assign variables from table data classes
 
   let NPU = document.getElementById('NPU').value;
-  let name = table.getElementsByClassName('applName')[0].textContent;
-  let itmType = table.getElementsByClassName('itmType')[0].textContent;
-  let disp = table.getElementsByClassName('disp')[0].textContent;
-  // let comments = table.getElementsByClassName('comments')[0].textContent || '';
-  // if comments cell doesn't exist, assign empty string
-  let comments = table.getElementsByClassName('comments')[0] ? table.getElementsByClassName('comments')[0].textContent : '';
+  // let name = table.getElementsByClassName('applName')[0].textContent;
+  // let itmType = table.getElementsByClassName('itmType')[0].textContent;
+  // let disp = table.getElementsByClassName('disp')[0].textContent;
+  // // let comments = table.getElementsByClassName('comments')[0].textContent || '';
+  // // if comments cell doesn't exist, assign empty string
+  // let comments = table.getElementsByClassName('comments')[0] ? table.getElementsByClassName('comments')[0].textContent : '';
 
   tableToArray();
 
@@ -328,6 +328,8 @@ document.getElementById('save').addEventListener('click', function (event) {
       let row = rows[i];
       let cells = row.querySelectorAll('td');
       let cont = {};
+      // add NPU and date to object
+      cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
       obj = { fields: cont };
       for (let j = 0; j < cells.length; j++) {
         let cell = cells[j];
@@ -341,6 +343,7 @@ document.getElementById('save').addEventListener('click', function (event) {
         }
       }
       array.push(obj);
+      console.log(array);
     }
     base('Table 1').create(array, function (err, records) {
       if (err) { console.error(err); return; }
@@ -350,5 +353,4 @@ document.getElementById('save').addEventListener('click', function (event) {
       });
     });
   }
-  console.log(array);
 });
