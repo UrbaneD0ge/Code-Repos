@@ -354,14 +354,12 @@ document.getElementById('save').addEventListener('click', function (event) {
 });
 
 // on getLast button click, get last record id from local storage and get record from AirTable
-document.getElementById('getLast').addEventListener('click', getRecord());
-
-// get last record id from local storage and GET record from AirTable
-function getRecord() {
+document.getElementById('getLast').addEventListener('click', function (event) {
+  // get last record id from local storage and GET record from AirTable
   let recordIds = localStorage.getItem('recordIds');
   let recordId = recordIds.split(',')[recordIds.split(',').length - 1];
   base('Table 1').find(recordId, function (err, record) {
     if (err) { console.error(err); return; }
     console.log(record.fields);
   });
-}
+});
