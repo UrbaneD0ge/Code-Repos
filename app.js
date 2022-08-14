@@ -295,46 +295,60 @@ document.getElementById('save').addEventListener('click', function (event) {
 
   tableToArray();
 
-  // send array of objects to AirTable
-  base('Table 1').create([
-    {
-      fields: {
-        "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
-        "fldck9li8kMT9xBLx": itmType,
-        "fldYxaSmdxSjS1N0k": name,
-        "fldBuDdWpnXqlmr9T": [disp],
-        "fldswanafOKIWEGy3": comments,
-        // "fldMb04KSFvOpBXf9": [deferTo],
-      }
-    }
-  ], function (err, records) {
-    if (err) { console.error(err); return; }
-    records.forEach(function (record) {
-      console.log('New object created with id: ' + record.getId());
-      console.log(record.fields);
-    }
-    );
-  }
-  );
-}
-);
+  //   // send array of objects to AirTable
+  //   base('Table 1').create([
+  //     {
+  //       fields: {
+  //         "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
+  //         "fldck9li8kMT9xBLx": itmType,
+  //         "fldYxaSmdxSjS1N0k": name,
+  //         "fldBuDdWpnXqlmr9T": [disp],
+  //         "fldswanafOKIWEGy3": comments,
+  //         // "fldMb04KSFvOpBXf9": [deferTo],
+  //       }
+  //     }
+  //   ], function (err, records) {
+  //     if (err) { console.error(err); return; }
+  //     records.forEach(function (record) {
+  //       console.log('New object created with id: ' + record.getId());
+  //       console.log(record.fields);
+  //     }
+  //     );
+  //   }
+  //   );
+  // }
+  // );
 
-// turn each row and its comments into an array of objects
-function tableToArray() {
-  let table = document.getElementById('table');
-  let rows = table.querySelectorAll('tr');
-  let array = [];
-  for (let i = 0; i < rows.length; i++) {
-    let row = rows[i];
-    let cells = row.querySelectorAll('td');
-    let obj = {};
-    for (let j = 0; j < cells.length; j++) {
-      let cell = cells[j];
-      let cellName = cell.classList[0];
-      let cellValue = cell.textContent;
-      obj[cellName] = cellValue;
+  // turn each row and its comments into an array of objects
+  function tableToArray() {
+    let table = document.getElementById('table');
+    let rows = table.querySelectorAll('tr');
+    let array = [];
+    for (let i = 1; i < rows.length; i++) {
+      let row = rows[i];
+      let cells = row.querySelectorAll('td');
+      let cont = {};
+      obj = { fields: cont };
+      for (let j = 0; j < cells.length; j++) {
+        let cell = cells[j];
+        let cellName = cell.classList[0];
+        let cellValue = cell.textContent;
+        // if cell is a disp cell, add cell value to nested array
+        if (cellName === 'disp') {
+          cont[cellName] = [cellValue];
+        } else {
+          cont[cellName] = cellValue;
+        }
+      }
+      array.push(obj);
     }
-    array.push(obj);
+    base('Table 1').create(array, function (err, records) {
+      if (err) { console.error(err); return; }
+      records.forEach(function (record) {
+        console.log('New object created with id: ' + record.getId());
+        console.log(record.fields);
+      });
+    });
   }
   console.log(array);
-}
+});
