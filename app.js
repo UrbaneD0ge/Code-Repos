@@ -25,6 +25,11 @@ function storeForm() {
 
 // on load, check if there is data in local storage and if so, pre-fill the form
 window.onload = function () {
+
+  // set datepicker to today
+  field.value = new Date(Date.now()).toISOString().substring(0, 10);
+
+  // check if there is data in local storage
   if (localStorage.getItem('data')) {
     let data = JSON.parse(localStorage.getItem('data'));
     document.querySelector('#NPU').value = data.NPU;
@@ -215,11 +220,6 @@ window.onbeforeunload = function (e) {
 // get date from datepicker
 let field = document.querySelector('#date');
 
-// set datepicker to today
-field.value = new Date(Date.now()).toISOString().substring(0, 10);
-
-// today = document.querySelector('#date').valueAsDate = new Date();
-
 // listen for print event
 window.addEventListener('beforeprint', () => {
   let NPU = document.getElementById('NPU').value;
@@ -342,6 +342,7 @@ document.getElementById('save').addEventListener('click', function (event) {
           cont[cellName] = cellValue;
         }
       }
+      // add object to array and log
       array.push(obj);
       console.log(array);
     }
