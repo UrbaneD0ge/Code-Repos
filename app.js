@@ -306,18 +306,6 @@ document.getElementById('save').addEventListener('click', function (event) {
   //         "fldswanafOKIWEGy3": comments,
   //         // "fldMb04KSFvOpBXf9": [deferTo],
   //       }
-  //     }
-  //   ], function (err, records) {
-  //     if (err) { console.error(err); return; }
-  //     records.forEach(function (record) {
-  //       console.log('New object created with id: ' + record.getId());
-  //       console.log(record.fields);
-  //     }
-  //     );
-  //   }
-  //   );
-  // }
-  // );
 
   // turn each row and its comments into an array of objects
   function tableToArray() {
@@ -340,6 +328,11 @@ document.getElementById('save').addEventListener('click', function (event) {
           cont[cellName] = [cellValue];
         } else {
           cont[cellName] = cellValue;
+        }
+        // if cell is a comment cell, it blongs to the previous row, so add to previous object and delete the second object
+        if (cellName === 'comments') {
+          array[array.length - 1].fields[cellName] = cellValue;
+          array.splice(1, 1);
         }
       }
       // add object to array and log
