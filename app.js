@@ -287,13 +287,9 @@ document.getElementById('save').addEventListener('click', function (event) {
   let name = table.getElementsByClassName('applName')[0].textContent;
   let itmType = table.getElementsByClassName('itmType')[0].textContent;
   let disp = table.getElementsByClassName('disp')[0].textContent;
-  let comments = table.getElementsByClassName('comments')[0].innerText || '';
-  // let deferTo = document.getElementById('deferTo').value;
-  // if comments exist, get text from cell
-  // if no comments, set comments to empty string
-  if (comments === undefined) {
-    comments = '';
-  }
+  // let comments = table.getElementsByClassName('comments')[0].textContent || '';
+  // if comments cell doesn't exist, assign empty string
+  let comments = table.getElementsByClassName('comments')[0] ? table.getElementsByClassName('comments')[0].textContent : '';
 
   tableToArray();
 
