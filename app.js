@@ -212,20 +212,22 @@ window.onbeforeunload = function (e) {
   return 'Form contents will be lost!';
 };
 
-// set datepicker to today
-today = document.querySelector('#date').valueAsDate = new Date();
 // get date from datepicker
 let field = document.querySelector('#date');
 
+// set datepicker to today
+field.value = new Date(Date.now()).toISOString().substring(0, 10);
+
+// today = document.querySelector('#date').valueAsDate = new Date();
+
 // listen for print event
 window.addEventListener('beforeprint', () => {
-  NPU = document.getElementById('NPU').value;
+  let NPU = document.getElementById('NPU').value;
 
   // Get the date
   let date = new Date(`${field.value}T00:00:00`);
   // Format date as MM-DD-YYYY
   let dateString = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
-  console.log(dateString);
 
   // change document title
   document.title = `Voting Report_NPU-${NPU}_${dateString}`
