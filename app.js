@@ -286,122 +286,122 @@ document.getElementById('save').addEventListener('click', function (event) {
   // assign variables from table data classes
   let NPU = document.getElementById('NPU').value;
 
-  tableToArray();
+  // tableToArray();
 
-  //   // send array of objects to AirTable
-  //   base('Table 1').create([
-  //     {
-  //       fields: {
-  //         "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
-  //         "fldck9li8kMT9xBLx": itmType,
-  //         "fldYxaSmdxSjS1N0k": name,
-  //         "fldBuDdWpnXqlmr9T": [disp],
-  //         "fldswanafOKIWEGy3": comments,
-  //         // "fldMb04KSFvOpBXf9": [deferTo],
-  //       }
+  // //   // send array of objects to AirTable
+  // //   base('Table 1').create([
+  // //     {
+  // //       fields: {
+  // //         "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
+  // //         "fldck9li8kMT9xBLx": itmType,
+  // //         "fldYxaSmdxSjS1N0k": name,
+  // //         "fldBuDdWpnXqlmr9T": [disp],
+  // //         "fldswanafOKIWEGy3": comments,
+  // //         // "fldMb04KSFvOpBXf9": [deferTo],
+  // //       }
 
-  // turn each row and its comments into an array of objects
-  function tableToArray() {
-    let table = document.getElementById('table');
-    let rows = table.querySelectorAll('tr');
-    let array = [];
-    for (let i = 1; i < rows.length; i++) {
-      let row = rows[i];
-      let cells = row.querySelectorAll('td');
-      let cont = {};
-      obj = { fields: cont };
-      for (let j = 0; j < cells.length; j++) {
-        let cell = cells[j];
-        let cellName = cell.classList[0];
-        let cellValue = cell.textContent;
-        // if cell is a disp cell, add cell value to nested array
-        if (cellName === 'disp') {
-          cont[cellName] = [cellValue];
+  // // turn each row and its comments into an array of objects
+  // function tableToArray() {
+  let table = document.getElementById('table');
+  let rows = table.querySelectorAll('tr');
+  let array = [];
+  for (let i = 1; i < rows.length; i++) {
+    let row = rows[i];
+    let cells = row.querySelectorAll('td');
+    let cont = {};
+    obj = { fields: cont };
+    for (let j = 0; j < cells.length; j++) {
+      let cell = cells[j];
+      let cellName = cell.classList[0];
+      let cellValue = cell.textContent;
+      // if cell is a disp cell, add cell value to nested array
+      if (cellName === 'disp') {
+        cont[cellName] = [cellValue];
+      } else {
+        cont[cellName] = cellValue;
+      }
+      // if cell is a comment cell, it belongs to the previous row, so add to previous object and remove from current object
+      if (cellName === 'comments') {
+        array[array.length - 1].fields[cellName] = cellValue;
+        // Don't create this row
+        delete cont[cellName];
+      }
+    }
+    // add NPU and date to object if more than one cell
+    if (Object.keys(cont).length > 1) {
+      cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
+    }
+    // delete empty objects
+    if (Object.keys(cont).length === 0) {
+      continue;
+    }
+
+    // add object to array and log
+    array.push(obj);
+  }
+
+  // if obj contains more than 10 items, split off the first ten and send to AirTable, then send the rest to the next page
+  if (array.length > 10) {
+    let firstTen = array.slice(0, 10);
+    base('Table 1').create(firstTen, function (err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        // save record ids to local storage
+        let recordId = record.id;
+        let recordIds = localStorage.getItem('recordIds');
+        if (recordIds) {
+          recordIds += ',' + recordId;
         } else {
-          cont[cellName] = cellValue;
+          recordIds = recordId;
         }
-        // if cell is a comment cell, it belongs to the previous row, so add to previous object and remove from current object
-        if (cellName === 'comments') {
-          array[array.length - 1].fields[cellName] = cellValue;
-          // Don't create this row
-          delete cont[cellName];
-        }
-      }
-      // add NPU and date to object if more than one cell
-      if (Object.keys(cont).length > 1) {
-        cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
-      }
-      // delete empty objects
-      if (Object.keys(cont).length === 0) {
-        continue;
-      }
-
-      // add object to array and log
-      array.push(obj);
-    }
-    // if obj contains more than 10 items, split off the first ten and send to AirTable, then send the rest to the next page
-    if (array.length > 10) {
-      let firstTen = array.slice(0, 10);
-      base('Table 1').create(firstTen, function (err, records) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        records.forEach(function (record) {
-          // save record ids to local storage
-          let recordId = record.id;
-          let recordIds = localStorage.getItem('recordIds');
-          if (recordIds) {
-            recordIds += ',' + recordId;
-          } else {
-            recordIds = recordId;
-          }
-          localStorage.setItem('recordIds', recordIds);
-          // log record id and record id array
-          console.log('New object created with id: ' + record.getId());
-          console.log(record.fields);
-        });
+        localStorage.setItem('recordIds', recordIds);
+        // log record id and record id array
+        console.log('New object created with id: ' + record.getId());
+        console.log(record.fields);
       });
-      let rest = array.slice(10);
-      base('Table 1').create(rest, function (err, records) {
-        if (err) {
-          console.error(err);
-          return;
+    });
+    let rest = array.slice(10);
+    base('Table 1').create(rest, function (err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        // save record ids to local storage
+        let recordId = record.id;
+        let recordIds = localStorage.getItem('recordIds');
+        if (recordIds) {
+          recordIds += ',' + recordId;
+        } else {
+          recordIds = recordId;
         }
-        records.forEach(function (record) {
-          // save record ids to local storage
-          let recordId = record.id;
-          let recordIds = localStorage.getItem('recordIds');
-          if (recordIds) {
-            recordIds += ',' + recordId;
-          } else {
-            recordIds = recordId;
-          }
-          localStorage.setItem('recordIds', recordIds);
-          // log record id and record id array
-          console.log('New object created with id: ' + record.getId());
-          console.log(record.fields);
-        });
+        localStorage.setItem('recordIds', recordIds);
+        // log record id and record id array
+        console.log('New object created with id: ' + record.getId());
+        console.log(record.fields);
       });
-    } else {
-      base('Table 1').create(array, function (err, records) {
-        if (err) { console.error(err); return; }
-        records.forEach(function (record) {
-          // save record ids to local storage
-          let recordId = record.id;
-          let recordIds = localStorage.getItem('recordIds');
-          if (recordIds) {
-            recordIds += ',' + recordId;
-          } else {
-            recordIds = recordId;
-          }
-          localStorage.setItem('recordIds', recordIds);
-          // log record id and record id array
-          console.log('New object created with id: ' + record.getId());
-          console.log(record.fields);
-        });
+    });
+  } else {
+    base('Table 1').create(array, function (err, records) {
+      if (err) { console.error(err); return; }
+      records.forEach(function (record) {
+        // save record ids to local storage
+        let recordId = record.id;
+        let recordIds = localStorage.getItem('recordIds');
+        if (recordIds) {
+          recordIds += ',' + recordId;
+        } else {
+          recordIds = recordId;
+        }
+        localStorage.setItem('recordIds', recordIds);
+        // log record id and record id array
+        console.log('New object created with id: ' + record.getId());
+        console.log(record.fields);
       });
-    }
+    });
   }
 });
 
