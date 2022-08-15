@@ -320,38 +320,86 @@ document.getElementById('save').addEventListener('click', function (event) {
         } else {
           cont[cellName] = cellValue;
         }
-        // if cell is a comment cell, it blongs to the previous row, so add to previous object
+        // if cell is a comment cell, it belongs to the previous row, so add to previous object and remove from current object
         if (cellName === 'comments') {
           array[array.length - 1].fields[cellName] = cellValue;
           // Don't create this row
-          continue;
+          delete cont[cellName];
         }
       }
-      // add NPU and date to object
-      cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
+      // add NPU and date to object if more than one cell
+      if (Object.keys(cont).length > 1) {
+        cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
+      }
       // add object to array and log
       array.push(obj);
-      console.log(array);
     }
-    base('Table 1').create(array, function (err, records) {
-      if (err) { console.error(err); return; }
-      records.forEach(function (record) {
-        // save record ids to local storage
-        let recordId = record.id;
-        let recordIds = localStorage.getItem('recordIds');
-        if (recordIds) {
-          recordIds += ',' + recordId;
-        } else {
-          recordIds = recordId;
+    // if obj contains more than 10 items, split off the first ten and send to AirTable, then send the rest to the next page
+    if (array.length > 10) {
+      let firstTen = array.slice(0, 10);
+      base('Table 1').create(firstTen, function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
         }
-        localStorage.setItem('recordIds', recordIds);
-        // log record id and record id array
-        console.log('New object created with id: ' + record.getId());
-        console.log(record.fields);
+        records.forEach(function (record) {
+          // save record ids to local storage
+          let recordId = record.id;
+          let recordIds = localStorage.getItem('recordIds');
+          if (recordIds) {
+            recordIds += ',' + recordId;
+          } else {
+            recordIds = recordId;
+          }
+          localStorage.setItem('recordIds', recordIds);
+          // log record id and record id array
+          console.log('New object created with id: ' + record.getId());
+          console.log(record.fields);
+        });
       });
-    });
+      let rest = array.slice(10);
+      base('Table 1').create(rest, function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        records.forEach(function (record) {
+          // save record ids to local storage
+          let recordId = record.id;
+          let recordIds = localStorage.getItem('recordIds');
+          if (recordIds) {
+            recordIds += ',' + recordId;
+          } else {
+            recordIds = recordId;
+          }
+          localStorage.setItem('recordIds', recordIds);
+          // log record id and record id array
+          console.log('New object created with id: ' + record.getId());
+          console.log(record.fields);
+        });
+      });
+    } else {
+      base('Table 1').create(array, function (err, records) {
+        if (err) { console.error(err); return; }
+        records.forEach(function (record) {
+          // save record ids to local storage
+          let recordId = record.id;
+          let recordIds = localStorage.getItem('recordIds');
+          if (recordIds) {
+            recordIds += ',' + recordId;
+          } else {
+            recordIds = recordId;
+          }
+          localStorage.setItem('recordIds', recordIds);
+          // log record id and record id array
+          console.log('New object created with id: ' + record.getId());
+          console.log(record.fields);
+        });
+      });
+    }
   }
 });
+
 
 // on getLast button click, get last record id from local storage and get record from AirTable
 document.getElementById('getLast').addEventListener('click', function (event) {
