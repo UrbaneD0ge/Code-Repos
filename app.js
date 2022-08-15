@@ -281,27 +281,57 @@ document.querySelector('#print').addEventListener('click', () => {
   window.print();
 });
 
+// // get form values
+// function getFormValues() {
+//   let formValues = {};
+//   let form = document.querySelector('#table');
+//   let rows = form.querySelectorAll('tr');
+//   for (let i = 0; i < rows.length; i++) {
+//     let row = rows[i];
+//     let cells = row.querySelectorAll('td');
+//     for (let j = 0; j < cells.length; j++) {
+//       let cell = cells[j];
+//       let cellValue = cell.textContent;
+//       let cellId = cell.id;
+//       formValues[cellId] = cellValue;
+//     }
+//   }
+//   return formValues;
+// }
+
+// function getRecordIds() {
+//   let recordIds = [];
+//   let form = document.querySelector('#table');
+//   let rows = form.querySelectorAll('tr');
+//   for (let i = 0; i < rows.length; i++) {
+//     let row = rows[i];
+//     let cells = row.querySelectorAll('td');
+//     for (let j = 0; j < cells.length; j++) {
+//       let cell = cells[j];
+//       let cellId = cell.id;
+//       if (cellId.includes('recordId')) {
+//         recordIds.push(cellId);
+//       }
+//     }
+//   }
+//   return recordIds;
+// }
+
 // on save, get the values from the form
 document.getElementById('save').addEventListener('click', function (event) {
+  // clear any previous localStorage
+  localStorage.removeItem('recordIds');
+
+  // // save form values to localStorage
+  // localStorage.setItem('formValues', JSON.stringify(getFormValues()));
+
+  // // if form values are the same as last saved, don't save
+  // if (JSON.stringify(getFormValues()) === localStorage.getItem('formValues')) {
+  //   return;
+  // }
+
   // assign variables from table data classes
   let NPU = document.getElementById('NPU').value;
-
-  // tableToArray();
-
-  // //   // send array of objects to AirTable
-  // //   base('Table 1').create([
-  // //     {
-  // //       fields: {
-  // //         "fldSdIFMSRkdJGd9Z": 'NPU-' + NPU + '_' + new Date().toLocaleDateString(),
-  // //         "fldck9li8kMT9xBLx": itmType,
-  // //         "fldYxaSmdxSjS1N0k": name,
-  // //         "fldBuDdWpnXqlmr9T": [disp],
-  // //         "fldswanafOKIWEGy3": comments,
-  // //         // "fldMb04KSFvOpBXf9": [deferTo],
-  // //       }
-
-  // // turn each row and its comments into an array of objects
-  // function tableToArray() {
   let table = document.getElementById('table');
   let rows = table.querySelectorAll('tr');
   let array = [];
@@ -335,7 +365,6 @@ document.getElementById('save').addEventListener('click', function (event) {
     if (Object.keys(cont).length === 0) {
       continue;
     }
-
     // add object to array and log
     array.push(obj);
   }
