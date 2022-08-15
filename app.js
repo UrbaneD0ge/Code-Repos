@@ -331,6 +331,11 @@ document.getElementById('save').addEventListener('click', function (event) {
       if (Object.keys(cont).length > 1) {
         cont['fldSdIFMSRkdJGd9Z'] = 'NPU-' + NPU + '_' + new Date().toLocaleDateString();
       }
+      // delete empty objects
+      if (Object.keys(cont).length === 0) {
+        continue;
+      }
+
       // add object to array and log
       array.push(obj);
     }
