@@ -1,6 +1,6 @@
 import { Airtable } from './airtable';
 // var Airtable = require('airtable');
-const base = require('Airtable').base('appotIP5Ss3YUKYYR');
+// const base = require('Airtable').base('appotIP5Ss3YUKYYR');
 // var base = Airtable.base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
