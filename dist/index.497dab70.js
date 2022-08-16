@@ -905,7 +905,7 @@ document.getElementById("save").addEventListener("click", function(event) {
     // if obj contains more than 10 items, split off the first ten and send to AirTable, then send the rest to the next page
     if (array.length > 10) {
         let firstTen = array.slice(0, 10);
-        (0, _airtable.base)("Table 1").create(firstTen, function(err, records) {
+        base("Table 1").create(firstTen, function(err, records) {
             if (err) {
                 console.error(err);
                 return;
@@ -923,7 +923,7 @@ document.getElementById("save").addEventListener("click", function(event) {
             });
         });
         let rest = array.slice(10);
-        (0, _airtable.base)("Table 1").create(rest, function(err, records) {
+        base("Table 1").create(rest, function(err, records) {
             if (err) {
                 console.error(err);
                 return;
@@ -940,7 +940,7 @@ document.getElementById("save").addEventListener("click", function(event) {
                 console.log(record.fields);
             });
         });
-    } else (0, _airtable.base)("Table 1").create(array, function(err, records) {
+    } else base("Table 1").create(array, function(err, records) {
         if (err) {
             console.error(err);
             return;
@@ -963,7 +963,7 @@ document.getElementById("getLast").addEventListener("click", function(event) {
     // get last record id from local storage and GET record from AirTable
     let recordIds = localStorage.getItem("recordIds");
     let recordId = recordIds.split(",")[recordIds.split(",").length - 1];
-    (0, _airtable.base)("Table 1").find(recordId, function(err, record) {
+    base("Table 1").find(recordId, function(err, record) {
         if (err) {
             console.error(err);
             return;
