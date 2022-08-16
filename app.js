@@ -1,5 +1,5 @@
 var Airtable = require('airtable');
-var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appotIP5Ss3YUKYYR');
+var base = new Airtable({ apiKey: 'AIRTABLE_API_KEY' }).base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
 let applName = document.getElementById('name');
