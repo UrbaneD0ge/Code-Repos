@@ -1,6 +1,7 @@
-import { Airtable } from 'airtable';
-// var Airtable = require('airtable');
-var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appotIP5Ss3YUKYYR');
+import { Airtable, base } from './airtable';
+var Airtable = require('airtable');
+const base = require('Airtable').base('appotIP5Ss3YUKYYR');
+// var base = Airtable.base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
 let applName = document.getElementById('name');
@@ -366,7 +367,7 @@ document.querySelector('#print').addEventListener('click', () => {
 
 // on save, get the values from the form
 document.getElementById('save').addEventListener('click', function (event) {
-  if (document.getElementById('#demo') !== true) {
+  if (document.getElementById('demo') == true) {
     window.alert('No data to save!');
     return;
   }
