@@ -1,5 +1,5 @@
 var Airtable = require('airtable');
-var base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base('appotIP5Ss3YUKYYR');
+var base = new Airtable({ apiKey: 'keyDFa7RNG5otUO3C' }).base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
 let applName = document.getElementById('name');
@@ -153,8 +153,6 @@ submit.addEventListener('click', (e) => {
     // append row to tbody
     tbody.appendChild(commentsRow);
   }
-
-  console.log('new row added');
   // clear inputs
   document.querySelector('#addItem').reset();
   removeDemo();
@@ -166,8 +164,47 @@ document.querySelector('#table').addEventListener('click', (e) => {
     if (confirm('Are you sure you want to delete this item?')) {
       e.target.parentElement.parentElement.parentElement.remove();
     } else { return; }
+    // if there are no rows in the table, add a demo row
+    if (table.rows.length === 1) {
+      addDemo();
+    }
   }
 });
+
+// on ready, disable save button
+window.onload = function () {
+  document.getElementById('save').disabled = true;
+  document.getElementById('print').disabled = true;
+}
+
+// add demo row to table if there are no rows in the table
+function addDemo() {
+  let row = document.createElement('tr');
+  let itmTypeCell = document.createElement('td');
+  let applNameCell = document.createElement('td');
+  let disposalCell = document.createElement('td');
+  let commentsRow = document.createElement('tr');
+  let commentsCell = document.createElement('td');
+  itmTypeCell.innerText = 'Type';
+  itmTypeCell.classList.add('itmType');
+  applNameCell.innerText = 'Applicant Name';
+  applNameCell.classList.add('applName');
+  disposalCell.innerText = 'Disposal';
+  disposalCell.classList.add('disp');
+  commentsCell.innerText = 'Comments';
+  commentsCell.classList.add('comments');
+  commentsCell.setAttribute('colspan', '3');
+  row.appendChild(itmTypeCell);
+  row.appendChild(applNameCell);
+  row.appendChild(disposalCell);
+  commentsRow.appendChild(commentsCell);
+  let tbody = document.createElement('tbody');
+  tbody.append(row);
+  table.append(tbody);
+  tbody.appendChild(commentsRow);
+  tbody.id = 'demo';
+}
+
 
 // remove #demo if it exists
 function removeDemo() {
@@ -175,6 +212,9 @@ function removeDemo() {
     return;
   } else {
     document.querySelector('#demo').remove();
+    // enable save button
+    document.querySelector('#save').disabled = false;
+    document.getElementById('print').disabled = false;
   }
 };
 
@@ -237,6 +277,7 @@ window.addEventListener('beforeprint', () => {
   document.getElementById('print').style.display = 'none';
   document.getElementById('report').style.display = 'none';
   document.getElementById('save').style.display = 'none';
+  document.getElementById('getLast').style.display = 'none';
   document.querySelectorAll('.btn-close').forEach(btn => {
     btn.style.display = 'none';
     document.getElementById('signature').style.display = 'block';
@@ -261,6 +302,7 @@ window.addEventListener('afterprint', () => {
   document.getElementById('print').style.display = 'block';
   document.getElementById('save').style.display = 'block';
   document.getElementById('report').style.display = 'block';
+  document.getElementById('getLast').style.display = 'block';
   document.querySelectorAll('.btn-close').forEach(btn => {
     btn.style.display = 'inline';
   });
@@ -272,12 +314,16 @@ document.querySelector('#print').addEventListener('click', () => {
   // if any dispCell is "PENDING", cancel print and highlight cell
   let dispCell = document.querySelectorAll('.disp');
   for (let i = 0; i < dispCell.length; i++) {
+    // if no dispCell is "PENDING", print page
     if (dispCell[i].textContent === 'PENDING') {
       dispCell[i].classList.add('highlight');
       return;
     }
   }
-  // if no dispCell is "PENDING", print page
+  if (document.getElementById('#demo') !== true) {
+    window.alert('No data to print!');
+    return;
+  }
   window.print();
 });
 
@@ -319,6 +365,10 @@ document.querySelector('#print').addEventListener('click', () => {
 
 // on save, get the values from the form
 document.getElementById('save').addEventListener('click', function (event) {
+  if (document.getElementById('#demo') !== true) {
+    window.alert('No data to save!');
+    return;
+  }
   // clear any previous localStorage
   localStorage.removeItem('recordIds');
 
@@ -433,7 +483,6 @@ document.getElementById('save').addEventListener('click', function (event) {
     });
   }
 });
-
 
 // on getLast button click, get last record id from local storage and get record from AirTable
 document.getElementById('getLast').addEventListener('click', function (event) {
