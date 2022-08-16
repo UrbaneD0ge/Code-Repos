@@ -1,8 +1,12 @@
-import { Airtable } from './airtable';
-import { Base } from './airtable';
+import * as Airtable from 'airtable';
 // var Airtable = require('airtable');
 // const base = require('Airtable').base('appotIP5Ss3YUKYYR');
 // var base = Airtable.base('appotIP5Ss3YUKYYR');
+Airtable.configure({
+  endpointUrl: 'https://api.airtable.com',
+  apiKey: 'keyDFa7RNG5otUO3C'
+});
+var base = Airtable.base('appotIP5Ss3YUKYYR');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
 let applName = document.getElementById('name');
