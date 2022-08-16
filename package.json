@@ -1,7 +1,6 @@
 {
   "name": "tables-in-the-air",
   "version": "1.0.0",
-  "description": "",
   "source": "app.js",
   "scripts": {
     "dev": "npx parcel index.html",
@@ -18,7 +17,7 @@
     "@parcel/packager-raw-url": "^2.7.0",
     "@parcel/transformer-webmanifest": "^2.7.0",
     "airtable": "^0.11.4",
-    "parcel": "^2.1.1"
+    "parcel": "^2.7.0"
   },
   "targets": {
     "modern": {
@@ -26,5 +25,15 @@
         "browsers": ">= 50%"
       }
     }
-  }
+  },
+  "main": "airtable.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrbaneD0ge/Tables-in-the-Air.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UrbaneD0ge/Tables-in-the-Air/issues"
+  },
+  "homepage": "https://github.com/UrbaneD0ge/Tables-in-the-Air#readme",
+  "description": ""
 }
