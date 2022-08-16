@@ -1,14 +1,14 @@
-var $2A20x$airtable = require("airtable");
+var $hDP3I$airtable = require("airtable");
 
 
 // var Airtable = require('airtable');
 // const base = require('Airtable').base('appotIP5Ss3YUKYYR');
 // var base = Airtable.base('appotIP5Ss3YUKYYR');
-$2A20x$airtable.configure({
+$hDP3I$airtable.configure({
     endpointUrl: "https://api.airtable.com",
     apiKey: "keyDFa7RNG5otUO3C"
 });
-var $84a264530b3fb4fb$var$base = $2A20x$airtable.base("appotIP5Ss3YUKYYR");
+var $84a264530b3fb4fb$var$base = $hDP3I$airtable.base("appotIP5Ss3YUKYYR");
 const $84a264530b3fb4fb$var$submit = document.getElementById("submit");
 const $84a264530b3fb4fb$var$table = document.getElementById("table");
 let $84a264530b3fb4fb$var$applName = document.getElementById("name");
@@ -446,4 +446,4 @@ document.getElementById("getLast").addEventListener("click", function(event) {
 });
 
 
-//# sourceMappingURL=airtable.js.map
+//# sourceMappingURL=NPUTableInterface.js.map

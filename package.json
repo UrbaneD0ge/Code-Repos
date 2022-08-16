@@ -22,7 +22,7 @@
       }
     }
   },
-  "main": "dist/app.js",
+  "main": "dist/NPUTableInterface.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UrbaneD0ge/Tables-in-the-Air.git"
